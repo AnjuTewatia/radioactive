@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema(
         gender: { type: String, enum: ["Male", "Female", "Others"] },
         role: {
             type: String,
-            enum: ["Amdin", "Guest"],
+            enum: ["Admin", "Guest"],
         },
     },
     {

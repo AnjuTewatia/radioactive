@@ -66,7 +66,7 @@ const Navbar = () => {
                 <Center  h='50px' >
                   <Link to="/medicine" > 
                   <Text 
-                  fontWeight="extrabold" fontSize={"14px"} > Medicines</Text> 
+                  fontWeight="extrabold" fontSize={"14px"} > Cloths</Text> 
                   </Link>
                 </Center>
 
@@ -78,7 +78,7 @@ const Navbar = () => {
                  h='50px' >
                   <Link   to="/kids" >
                      <Text
-                     fontWeight="extrabold" fontSize={"14px"} > Kids</Text> 
+                     fontWeight="extrabold" fontSize={"14px"} > Health</Text> 
                      </Link>
                 </Center>
 
@@ -86,7 +86,7 @@ const Navbar = () => {
                 <Center  h='50px' >
                   <Link to="/test" > 
                   <Text 
-                  fontWeight="extrabold" fontSize={"14px"} > Tests</Text> </Link>
+                  fontWeight="extrabold" fontSize={"14px"} > Electronics</Text> </Link>
                 </Center>
                       
               </HStack >
@@ -150,7 +150,7 @@ const Navbar = () => {
                 <Center  h='50px' >
                   <Link to="/" > 
                   <Text 
-                  fontWeight="extrabold" fontSize={"20px"} > Medicines</Text> 
+                  fontWeight="extrabold" fontSize={"20px"} > Cloths</Text> 
                   </Link>
                 </Center>
 
@@ -162,7 +162,7 @@ const Navbar = () => {
                  h='50px' >
                   <Link   to="/landingPage/women" >
                      <Text
-                     fontWeight="extrabold" fontSize={"20px"} > kids</Text> 
+                     fontWeight="extrabold" fontSize={"20px"} > Health</Text> 
                      </Link>
                 </Center>
 
@@ -170,7 +170,19 @@ const Navbar = () => {
                 <Center  h='50px' >
                   <Link to="/landingPage/acceNavories" > 
                   <Text
-                  fontWeight="extrabold" fontSize={"20px"} > Tests</Text> </Link>
+                  fontWeight="extrabold" fontSize={"20px"} > Electronics</Text> </Link>
+                </Center>
+
+                <Center  h='50px' >
+                  <Link to="/landingPage/acceNavories" > 
+                  <Text
+                  fontWeight="extrabold" fontSize={"20px"} > Cosmentics</Text> </Link>
+                </Center>
+
+                <Center  h='50px' >
+                  <Link to="/landingPage/acceNavories" > 
+                  <Text
+                  fontWeight="extrabold" fontSize={"20px"} > Jewellery</Text> </Link>
                 </Center>
                       
               </HStack >
