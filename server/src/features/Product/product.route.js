@@ -68,7 +68,7 @@ app.post("", async (req, res) => {
     try {
         const product = new Product(payload)
         await product.save()
-        return res.status(201).send({ message: "Bhai chala gaya tera data server pe tension mat le maje kar abhi" })
+        return res.status(201).send({ message: "data is added" })
     } catch (error) {
         return res.status(400).send(error.message);
     }
@@ -78,7 +78,7 @@ app.post("", async (req, res) => {
 app.delete("/:id", async (req, res) => {
     try {
         let product = await Product.findByIdAndDelete({ _id: req.params.id });
-        return res.status(200).send({ message: "kar diya na delete , itna bura hu kya main " });
+        return res.status(200).send({ message: "data will be deleted " });
     } catch (error) {
         return res.status(400).send(error.message);
     }
@@ -89,7 +89,7 @@ app.patch("/:id", async (req, res) => {
     const payload = req.body
     try {
         await Product.findByIdAndUpdate({ _id: req.params.id }, payload);
-        return res.status(200).send({ message: "le bhai ho gaya main update " });
+        return res.status(200).send({ message: "data will be update " });
     } catch (error) {
         return res.status(400).send(error.message);
     }

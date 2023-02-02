@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import AllRoutes from './components/AllRoutes/AllRoutes'
-import Home from './components/Homepage/Home'
+import Bags from './components/Homepage/page'
+
 // import './App.css'
 import Navbar from './components/Navbar/Navbar'
 
@@ -12,7 +13,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <AllRoutes/>
-        
+       <Bags/>
     </div>
   )
 }

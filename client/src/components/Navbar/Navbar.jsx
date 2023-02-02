@@ -50,11 +50,11 @@ const Navbar = () => {
             
             <GridItem>
           
-            <Link to="/">
+            {/* <Link to="/">
                 <Image width="80%"
                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUJnEthfPZUDLBSxFTXRYP8IOMKJSyiW-cNg&usqp=CAU"
                 />
-            </Link>
+            </Link> */}
                
 
             </GridItem>
@@ -64,10 +64,10 @@ const Navbar = () => {
              <HStack  spacing='24px' >
 
                 <Center  h='50px' >
-                  <Link to="/medicine" > 
+                  
                   <Text 
                   fontWeight="extrabold" fontSize={"14px"} > Cloths</Text> 
-                  </Link>
+                 
                 </Center>
 
                 
@@ -76,17 +76,17 @@ const Navbar = () => {
               //  style={({ isActive }) => (isActive ? activeStyle : defaultStyle)}
                     style={activeStyle}
                  h='50px' >
-                  <Link   to="/kids" >
+                  <Link to="/health">
                      <Text
                      fontWeight="extrabold" fontSize={"14px"} > Health</Text> 
-                     </Link>
+                  </Link>
                 </Center>
 
                 
                 <Center  h='50px' >
-                  <Link to="/test" > 
+                 
                   <Text 
-                  fontWeight="extrabold" fontSize={"14px"} > Electronics</Text> </Link>
+                  fontWeight="extrabold" fontSize={"14px"} > Electronics</Text> 
                 </Center>
                       
               </HStack >
@@ -112,19 +112,19 @@ const Navbar = () => {
 
                   
                 <Center h='50px' >
-                  <Link  to="/login"  >
+                  
                      <Text
-                      fontWeight="extrabold" fontSize={"14px"} > Login</Text> </Link>
+                      fontWeight="extrabold" fontSize={"14px"} > Login</Text>
                 </Center>
                 <Center h='50px' >
-                  <Link  to="/login"  >
+                  
                      <Text
-                      fontWeight="extrabold" fontSize={"14px"} > SignUP</Text> </Link>
+                      fontWeight="extrabold" fontSize={"14px"} > SignUP</Text>
                 </Center>
 
                 <Center h='50px' >
                     
-                  <Link to="/cart"   > <CalendarIcon fontWeight="extrabold" fontSize={"20px"} > </CalendarIcon> </Link>
+                   <CalendarIcon fontWeight="extrabold" fontSize={"20px"} > </CalendarIcon> 
 
                 </Center>
 
@@ -160,29 +160,29 @@ const Navbar = () => {
               //  style={({ isActive }) => (isActive ? activeStyle : defaultStyle)}
                 
                  h='50px' >
-                  <Link   to="/landingPage/women" >
+                  
                      <Text
                      fontWeight="extrabold" fontSize={"20px"} > Health</Text> 
-                     </Link>
+                     
                 </Center>
 
                 
                 <Center  h='50px' >
-                  <Link to="/landingPage/acceNavories" > 
+                  
                   <Text
-                  fontWeight="extrabold" fontSize={"20px"} > Electronics</Text> </Link>
+                  fontWeight="extrabold" fontSize={"20px"} > Electronics</Text> 
                 </Center>
 
                 <Center  h='50px' >
-                  <Link to="/landingPage/acceNavories" > 
+                  
                   <Text
-                  fontWeight="extrabold" fontSize={"20px"} > Cosmentics</Text> </Link>
+                  fontWeight="extrabold" fontSize={"20px"} > Cosmentics</Text> 
                 </Center>
 
                 <Center  h='50px' >
-                  <Link to="/landingPage/acceNavories" > 
+                   
                   <Text
-                  fontWeight="extrabold" fontSize={"20px"} > Jewellery</Text> </Link>
+                  fontWeight="extrabold" fontSize={"20px"} > Jewellery</Text> 
                 </Center>
                       
               </HStack >
@@ -197,6 +197,7 @@ const Navbar = () => {
 
   )
 }
+
 
 export default Navbar
 

@@ -1,19 +1,25 @@
 import React from 'react'
 import { useEffect } from "react";
 import { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { Box, Img } from "@chakra-ui/react";
 
 const Home = () => {
 
     const [data0, setData0] = useState(
+      "https://health-mart-frontend.vercel.app/static/media/bnr_2282186_o.b75bd66a26d64f2e3ebf.webp"
 
-            "bWFzdGVyfGltYWdlc3w4NjgxOXxpbWFnZS9qcGVnfGltYWdlcy9oYjEvaGE3Lzk5NDk2NTc3NTk3NzQuanBnfDJiNzJkNDIzOWU2YWRkY2I2OTM1ZGYzOTk1NzVmYjI1M2JjYTY4MDA0MzhhMmRlODVkYTE1OGIzYjFhYzk1YjA"
      );
       let data = [
         "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F599a770c-5c56-480c-95ad-d8f1d7d9623a.jpg&w=1920&q=75",
-        "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F535971f8-7a7b-4cd7-91f1-2908394cbf8f.jpg&w=1920&q=75",
-       "https://img.shop.com/Image/homepage/shop-us-eng-99087-blkhistory-2023-banners-cta1675269969042.jpg",
+        "https://health-mart-frontend.vercel.app/static/media/bnr_2282186_o.b75bd66a26d64f2e3ebf.webp",
+        "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F069d0c1c-f78c-4d80-94f9-e65f3bbdda73.jpg&w=1920&q=75",
+        "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F069d0c1c-f78c-4d80-94f9-e65f3bbdda73.jpg&w=1920&q=75",
+        "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F7afcfbe2-9c24-4624-8662-ecd24d0d1f2a.jpg&w=1920&q=75",
+        "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F069d0c1c-f78c-4d80-94f9-e65f3bbdda73.jpg&w=1920&q=75",
+        "https://health-mart-frontend.vercel.app/static/media/bnr_2282186_o.b75bd66a26d64f2e3ebf.webp",
+        "https://in.sugarcosmetics.com/_next/image?url=https%3A%2F%2Fd32baadbbpueqt.cloudfront.net%2FHomepage%2F599a770c-5c56-480c-95ad-d8f1d7d9623a.jpg&w=1920&q=75",
+
         
       ];
       useEffect(() => {
@@ -31,15 +37,20 @@ const Home = () => {
   return (
 
     <>
-    <Box className="banner" style={{marginLeft:"50px"}}>
+    <Box className="banner" >
         <Img
           borderRadius="20px"
-         
-          style={{height: "300px" }}
+          paddingTop={"125px"}
+          style={{height:"400px",marginLeft:"100px"}}
+
           src={data0}
           alt="banner"
         />
       </Box>
+
+
+      
+     
        
     </>
   )
