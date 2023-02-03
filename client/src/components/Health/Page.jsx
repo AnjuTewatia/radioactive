@@ -78,6 +78,7 @@ const Bags = () => {
   )
 }
 
+
 export default Bags
 
 
