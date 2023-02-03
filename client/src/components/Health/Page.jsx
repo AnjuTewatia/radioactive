@@ -37,14 +37,14 @@ const Bags = () => {
                 className="imgs"
                 style={{border:"2px solid blue"}}
                >
-               
+               <NavLink to="/clothes">
                   <Img
                   boxSize={"350"}
                    
                     src={items.image1}
                     alt=""
                   />
-
+                  </NavLink>
                
                 <Text align="center" color="black" p="0px 5px" fontWeight="bold">
                   {items.title}
