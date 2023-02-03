@@ -3,6 +3,50 @@ import { useEffect } from "react";
 import { useState } from "react";
 // import axios from "axios";
 import { Box, Img } from "@chakra-ui/react";
+import Bags from "../Health/page"
+import Health from '../Health/Health';
+// import Carousel from"../Carousel/Mens"
+import Carousel from "../Carousel"
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "black",
+        borderRadius: "50%",
+        margin: "auto",
+        width: "50px",
+        height: "50px",
+        position: "absolute",
+        zIndex: "1",
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        background: "black",
+        borderRadius: "50%",
+        margin: "auto",
+        width: "50px",
+        height: "50px",
+        position: "absolute",
+        zIndex: "1",
+      }}
+      onClick={onClick}
+    />
+  );
+}
 
 const Home = () => {
 
@@ -34,6 +78,50 @@ const Home = () => {
           setData0(data[a]);
         }, 3000);
       }, []);
+
+
+      const settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        initialSlide: 0,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true,
+              nextArrow: <SampleNextArrow />,
+              prevArrow: <SamplePrevArrow />,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2,
+              nextArrow: <SampleNextArrow />,
+              prevArrow: <SamplePrevArrow />,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              nextArrow: <SampleNextArrow />,
+              prevArrow: <SamplePrevArrow />,
+            },
+          },
+        ],
+      };
   return (
 
     <>
@@ -49,7 +137,9 @@ const Home = () => {
       </Box>
 
 
-      
+      {/* <Carousel/> */}
+      <Bags/>
+      <Health/>
      
        
     </>
