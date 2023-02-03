@@ -84,9 +84,11 @@ const Navbar = () => {
 
                 
                 <Center  h='50px' >
-                 
+                 <Link to="/electronics">
+
                   <Text 
                   fontWeight="extrabold" fontSize={"14px"} > Electronics</Text> 
+                  </Link>
                 </Center>
                       
               </HStack >
@@ -160,23 +162,27 @@ const Navbar = () => {
               //  style={({ isActive }) => (isActive ? activeStyle : defaultStyle)}
                 
                  h='50px' >
-                  
+                  <Link to="/health">
+
                      <Text
                      fontWeight="extrabold" fontSize={"20px"} > Health</Text> 
+                     </Link>
                      
                 </Center>
 
                 
                 <Center  h='50px' >
-                  
+                  <Link to="/electronics"></Link>
                   <Text
                   fontWeight="extrabold" fontSize={"20px"} > Electronics</Text> 
                 </Center>
 
                 <Center  h='50px' >
-                  
+                  <Link to="/cosmetics">
+
                   <Text
-                  fontWeight="extrabold" fontSize={"20px"} > Cosmentics</Text> 
+                  fontWeight="extrabold" fontSize={"20px"} > Cosmetics</Text> 
+                  </Link>
                 </Center>
 
                 <Center  h='50px' >

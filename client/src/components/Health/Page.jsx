@@ -11,9 +11,9 @@ const Bags = () => {
     const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      let res = await axios.get("http://localhost:8080/home")
+      let res = await axios.get("https://gold-gifted-ladybug.cyclic.app/product?category=Mens")
       console.log(res);
-      setData(res.data.slice(1,52));
+      setData(res.data);
     };
     getData();
   }, []);
@@ -21,7 +21,7 @@ const Bags = () => {
  
   return (
     <>
-      <Box className="moment" p="20px" pb="auto"style={{width:"85%",marginLeft:"100px"}}   >
+      <Box className="moment" p="20px" pb="auto" style={{width:"85%",marginLeft:"100px"}}   >
       <Text color="black" 
      fontSize={"35"}>CATEGORIES TO MENS</Text>
                 
@@ -37,14 +37,14 @@ const Bags = () => {
                 className="imgs"
                 style={{border:"2px solid blue"}}
                >
-               
+               <NavLink to="/clothes">
                   <Img
                   boxSize={"350"}
                    
                     src={items.image1}
                     alt=""
                   />
-
+                  </NavLink>
                
                 <Text align="center" color="black" p="0px 5px" fontWeight="bold">
                   {items.title}
@@ -61,9 +61,9 @@ const Bags = () => {
                 <Text marginLeft="20px" color="red" p="0px 5px">Code:
                   {items.code}
                 </Text>
-                <Text  marginLeft="20px" color="blue" p="0px 5px">Category:
+                {/* <Text  marginLeft="20px" color="blue" p="0px 5px">Category:
                   {items.category}
-                </Text>
+                </Text> */}
                <button style={{backgroundColor:"blue",marginLeft:"100px"}}>ADD To Cart</button>
 
                 
@@ -77,6 +77,7 @@ const Bags = () => {
     </>
   )
 }
+
 
 export default Bags
 
