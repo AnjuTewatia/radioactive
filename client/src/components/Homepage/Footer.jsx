@@ -41,7 +41,9 @@ const Footer=() => {
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
-      color={useColorModeValue('gray.700', 'gray.200')}>
+      color={useColorModeValue('gray.700', 'gray.200')}
+      paddingTop="125px" 
+      width="100%">
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr 1fr' }}
@@ -67,8 +69,13 @@ const Footer=() => {
             <Link href={'#'}>cosmetics</Link>
             <Link href={'#'}>Electronics</Link>
             <Link href={'#'}>jewelery</Link>
+
+
             
           </Stack>
+
+
+          
           <Stack align={'flex-start'}>
             <Text fontSize={"25px"}>Support</Text>
             <Link href={'#'}>Help Center</Link>

@@ -64,18 +64,15 @@ const Navbar = () => {
              <HStack  spacing='24px' >
 
                 <Center  h='50px' >
-                  
+                  <Link to ="/clothes">
                   <Text 
                   fontWeight="extrabold" fontSize={"14px"} > Cloths</Text> 
-                 
+                 </Link>
                 </Center>
 
                 
-                <Center padding="0px 20px" 
-
-              //  style={({ isActive }) => (isActive ? activeStyle : defaultStyle)}
-                    style={activeStyle}
-                 h='50px' >
+                <Center  h='50px'>
+              
                   <Link to="/health">
                      <Text
                      fontWeight="extrabold" fontSize={"14px"} > Health</Text> 
@@ -119,9 +116,10 @@ const Navbar = () => {
                       fontWeight="extrabold" fontSize={"14px"} > Login</Text>
                 </Center>
                 <Center h='50px' >
-                  
+                  <Link to ="/signup">
                      <Text
                       fontWeight="extrabold" fontSize={"14px"} > SignUP</Text>
+                      </Link>
                 </Center>
 
                 <Center h='50px' >
@@ -150,7 +148,7 @@ const Navbar = () => {
         <HStack justify="center" spacing='24px' >
 
                 <Center  h='50px' >
-                  <Link to="/" > 
+                  <Link to="/clothes" > 
                   <Text 
                   fontWeight="extrabold" fontSize={"20px"} > Cloths</Text> 
                   </Link>
