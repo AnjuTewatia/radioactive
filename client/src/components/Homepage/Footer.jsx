@@ -69,6 +69,8 @@ const Footer=() => {
             <Link href={'#'}>cosmetics</Link>
             <Link href={'#'}>Electronics</Link>
             <Link href={'#'}>jewelery</Link>
+
+            
             
           </Stack>
           <Stack align={'flex-start'}>
