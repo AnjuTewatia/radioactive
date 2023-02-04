@@ -70,9 +70,12 @@ const Footer=() => {
             <Link href={'#'}>Electronics</Link>
             <Link href={'#'}>jewelery</Link>
 
-            
+
             
           </Stack>
+
+
+          
           <Stack align={'flex-start'}>
             <Text fontSize={"25px"}>Support</Text>
             <Link href={'#'}>Help Center</Link>
