@@ -1,5 +1,4 @@
 
-
 import React from 'react'
 import { Image,Box,SimpleGrid,Text,Img } from '@chakra-ui/react'
 import { useEffect } from "react";
@@ -8,11 +7,11 @@ import axios from "axios";
 import { NavLink } from 'react-router-dom';
 // import Gangs from './Gangs';
 
-const Electronics = () => {
+const Health = () => {
     const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      let res = await axios.get("https://gold-gifted-ladybug.cyclic.app/product?category=electronics")
+      let res = await axios.get("https://gold-gifted-ladybug.cyclic.app/product?category=health")
       console.log(res);
       setData(res.data);
     };
@@ -22,11 +21,11 @@ const Electronics = () => {
  
   return (
     <>
-      <Box className="moment" p="20px" pb="auto"  paddingTop={"125px"}style={{width:"85%",marginLeft:"100px"}}   >
-      <Text color="black" 
-     fontSize={"35"}>CATEGORIES Of Electronics</Text>
+      <Box className="moment" p="20px" pb="auto">
+     <Text color="black" 
+     fontSize={"35"}>CATEGORIES For HEALTHS</Text> 
                 
-        <SimpleGrid columns={[1, 2, 3, 3]} gap={3}  >
+        <SimpleGrid columns={[1, 2, 3, 4]} gap={3}  >
           {data.map((items, index) => {
             return (
               <Box
@@ -38,7 +37,7 @@ const Electronics = () => {
                 className="imgs"
                 style={{border:"2px solid blue"}}
                >
-               <NavLink to="/electronics">
+               <NavLink to="/health">
                   <Img
                   boxSize={"350"}
                    
@@ -64,8 +63,10 @@ const Electronics = () => {
                 </Text>
                 {/* <Text  marginLeft="20px" color="blue" p="0px 5px">Category:
                   {items.category}
-                </Text> */}
-               <button style={{backgroundColor:"blue",marginLeft:"100px"}}>ADD To Cart</button>
+                </Text>
+               <button style={{backgroundColor:"blue",marginLeft:"100px"}}>ADD To Cart</button> */}
+
+                
               </Box>
             );
           })}
@@ -77,6 +78,6 @@ const Electronics = () => {
   )
 }
 
-export default Electronics
+export default Health
 
 

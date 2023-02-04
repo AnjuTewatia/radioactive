@@ -1,4 +1,5 @@
 
+
 import React from 'react'
 import { Image,Box,SimpleGrid,Text,Img } from '@chakra-ui/react'
 import { useEffect } from "react";
@@ -7,11 +8,11 @@ import axios from "axios";
 import { NavLink } from 'react-router-dom';
 // import Gangs from './Gangs';
 
-const Bags = () => {
+const Electronics = () => {
     const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      let res = await axios.get("https://gold-gifted-ladybug.cyclic.app/product?category=Mens")
+      let res = await axios.get("https://gold-gifted-ladybug.cyclic.app/product?category=electronics")
       console.log(res);
       setData(res.data);
     };
@@ -21,15 +22,16 @@ const Bags = () => {
  
   return (
     <>
-      <Box className="moment" p="20px" pb="auto" style={{width:"85%",marginLeft:"100px"}}   >
+      <Box className="moment" p="20px" pb="auto">
       <Text color="black" 
-     fontSize={"35"}>CATEGORIES TO MENS</Text>
+     fontSize={"35"}>CATEGORIES Of ELECTRONICS</Text>
                 
-        <SimpleGrid columns={[1, 2, 3, 3]} gap={3}  >
+        <SimpleGrid columns={[1, 2, 3, 4]} gap={3}  >
           {data.map((items, index) => {
             return (
               <Box
                 h="full"
+               
                 borderRadius="20px"
                 alignItems="center"
                 box-shadow= "10px 5px 5px black"
@@ -37,14 +39,14 @@ const Bags = () => {
                 className="imgs"
                 style={{border:"2px solid blue"}}
                >
-               <NavLink to="/clothes">
+               <NavLink to="/electronics">
                   <Img
                   boxSize={"350"}
                    
                     src={items.image1}
                     alt=""
                   />
-                  </NavLink>
+                </NavLink>
                
                 <Text align="center" color="black" p="0px 5px" fontWeight="bold">
                   {items.title}
@@ -65,8 +67,6 @@ const Bags = () => {
                   {items.category}
                 </Text> */}
                <button style={{backgroundColor:"blue",marginLeft:"100px"}}>ADD To Cart</button>
-
-                
               </Box>
             );
           })}
@@ -78,7 +78,6 @@ const Bags = () => {
   )
 }
 
-
-export default Bags
+export default Electronics
 
 

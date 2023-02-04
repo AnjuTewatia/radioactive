@@ -3,10 +3,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 // import axios from "axios";
 import { Box, Img } from "@chakra-ui/react";
-import Bags from "../Health/page"
-import Health from '../Health/Health';
+import Bags from "../pages/page"
+import Health from '../Pages/Health';
+import Women from "../Pages/Women"
+import Cosmetics from "../Pages/Cosmetics"
+import Electronics from "../Pages/Electronics"
 // import Carousel from"../Carousel/Mens"
-import Carousel from "../Carousel"
+// import Carousel from "../Carousel"
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -129,7 +132,8 @@ const Home = () => {
         <Img
           borderRadius="20px"
           paddingTop={"125px"}
-          style={{height:"400px",marginLeft:"100px"}}
+          width={"100%"}
+          style={{height:"400px"}}
 
           src={data0}
           alt="banner"
@@ -139,7 +143,10 @@ const Home = () => {
 
       {/* <Carousel/> */}
       <Bags/>
+      <Women/>
       <Health/>
+      <Electronics/>
+      <Cosmetics/>
      
        
     </>
