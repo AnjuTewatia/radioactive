@@ -10,7 +10,7 @@ const initailState={
 
 
 
-const ProductReducer=(state=initailState,{type,payload}) =>{
+ export const ProductReducer=(state=initailState,{type,payload}) =>{
 
     switch (type) {
         case PRODUCT_LOADING:
@@ -24,7 +24,7 @@ const ProductReducer=(state=initailState,{type,payload}) =>{
           case PRODUCT_SUCCESS:{
             return{
                 ...state,loading:false,
-                Product:payload,
+                product:payload,
                 error:false
 
             }
@@ -44,4 +44,3 @@ const ProductReducer=(state=initailState,{type,payload}) =>{
 
 }
 
-module.export={ProductReducer}

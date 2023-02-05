@@ -8,8 +8,10 @@ const userSchema = new mongoose.Schema(
         phoneNumber: { type: Number },
         gender: { type: String, enum: ["Male", "Female", "Others"] },
         role: {
+
             type: String,
             enum: ["Admin", "Guest"],
+            
         },
     },
     {

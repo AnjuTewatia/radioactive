@@ -1,5 +1,4 @@
 
-
 import React from 'react'
 import { Image,Box,SimpleGrid,Text,Img } from '@chakra-ui/react'
 import { useEffect } from "react";
@@ -8,12 +7,12 @@ import axios from "axios";
 import { NavLink } from 'react-router-dom';
 // import Gangs from './Gangs';
 
-const Women = () => {
+const Health = () => {
     const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      let res = await axios.get("https://gold-gifted-ladybug.cyclic.app/product?category=Womens")
-      console.log(res);
+      let res = await axios.get("https://gold-gifted-ladybug.cyclic.app/product?category=health")
+      // console.log(res);
       setData(res.data);
     };
     getData();
@@ -22,11 +21,12 @@ const Women = () => {
  
   return (
     <>
-      <Box className="moment" p="20px" pb="auto">
-      <Text color="black" 
-     fontSize={"35"}>CATEGORIES TO  WOMENS</Text>
+      <Box className="moment" p="20px" pb="auto" mb={"80px"}>
+     <Text color="black" 
+     fontSize={"35"}>CATEGORIES For HEALTHS</Text> 
+     <Image width={"100%"} height={"200px"} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzoJ2Hd34-95bdUVuTXAUSQCICApfybvo8g&usqp=CAU"/>
                 
-        <SimpleGrid columns={[1, 2, 3, 4]} gap={3}  >
+        <SimpleGrid columns={[1, 2, 3, 4]} gap={10}  >
           {data.map((items, index) => {
             return (
               <Box
@@ -36,11 +36,11 @@ const Women = () => {
                 box-shadow= "10px 5px 5px black"
                 key={index}
                 className="imgs"
-                style={{border:"2px solid blue"}}
+                style={{boxShadow:"5px 10px #888888" }}
                >
-               <NavLink to="/cosmetics">
+               <NavLink to="/health">
                   <Img
-                  boxSize={"350"}
+                  // boxSize={"350"}
                    
                     src={items.image1}
                     alt=""
@@ -51,17 +51,8 @@ const Women = () => {
                   {items.title}
                 </Text>
 
-                <Text marginLeft="20px" color="black" p="0px 5px">SoldBy:
-                  {items.soldby}
-                </Text>
-
-                <Text marginLeft="20px"color="red" p="0px 5px">Price:
-                  {items.price}
-                </Text>
-
-                <Text marginLeft="20px" color="red" p="0px 5px">Code:
-                  {items.code}
-                </Text>
+               
+                
               </Box>
             );
           })}
@@ -73,6 +64,6 @@ const Women = () => {
   )
 }
 
-export default Women
+export default Health
 
 

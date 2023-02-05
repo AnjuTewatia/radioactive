@@ -8,11 +8,11 @@ import axios from "axios";
 import { NavLink } from 'react-router-dom';
 // import Gangs from './Gangs';
 
-const Electronics = () => {
+const Women = () => {
     const [data, setData] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      let res = await axios.get("https://gold-gifted-ladybug.cyclic.app/product?category=electronics")
+      let res = await axios.get("https://gold-gifted-ladybug.cyclic.app/product?category=Womens")
       console.log(res);
       setData(res.data);
     };
@@ -22,27 +22,27 @@ const Electronics = () => {
  
   return (
     <>
-      <Box className="moment" p="20px" pb="auto">
+      <Box className="moment" p="20px" pb="auto" mb="80px">
       <Text color="black" 
-     fontSize={"35"}>CATEGORIES Of ELECTRONICS</Text>
+     fontSize={"35"}>CATEGORIES TO  WOMENS</Text>
+     <Image width={"100%"} height={"200px"}  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK5kFFauHp23FJyqro9CpbEaHovD4UmfWCmg&usqp=CAU"/>
                 
-        <SimpleGrid columns={[1, 2, 3, 4]} gap={3}  >
+        <SimpleGrid columns={[1, 2, 3, 4]} gap={10}  >
           {data.map((items, index) => {
             return (
               <Box
                 h="full"
-               
                 borderRadius="20px"
                 alignItems="center"
                 box-shadow= "10px 5px 5px black"
                 key={index}
                 className="imgs"
-                style={{border:"2px solid blue"}}
+                style={{boxShadow:"5px 10px #888888" }}
                >
-               <NavLink to="/electronics">
+               <NavLink to="/clothes">
                   <Img
-                  boxSize={"350"}
-                   
+                  // boxSize={"250"}
+                  //  height={"60%"}
                     src={items.image1}
                     alt=""
                   />
@@ -52,7 +52,7 @@ const Electronics = () => {
                   {items.title}
                 </Text>
 
-                <Text marginLeft="20px" color="black" p="0px 5px">SoldBy:
+                {/* <Text marginLeft="20px" color="black" p="0px 5px">SoldBy:
                   {items.soldby}
                 </Text>
 
@@ -62,11 +62,7 @@ const Electronics = () => {
 
                 <Text marginLeft="20px" color="red" p="0px 5px">Code:
                   {items.code}
-                </Text>
-                {/* <Text  marginLeft="20px" color="blue" p="0px 5px">Category:
-                  {items.category}
                 </Text> */}
-               <button style={{backgroundColor:"blue",marginLeft:"100px"}}>ADD To Cart</button>
               </Box>
             );
           })}
@@ -78,6 +74,6 @@ const Electronics = () => {
   )
 }
 
-export default Electronics
+export default Women
 
 
