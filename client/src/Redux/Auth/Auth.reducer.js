@@ -1,7 +1,7 @@
 
 import {AUTH_FAILURE,AUTH_LOADING,AUTH_SUCCESS,AUTH_LOGOUT} from "./Auth.actiontypes"
 
-const initailState ={ loading :false,error:false isAuth:false,token:"",data:{} 
+const initailState ={ loading :false,error:false, isAuth:false,token:"",data:{} 
 
 }
 

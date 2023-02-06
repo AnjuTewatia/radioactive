@@ -1,0 +1,9 @@
+
+.pagination{
+    justify-content: space-between;
+    color: red;
+}
+.pagination>button{
+    margin-left: 30px;
+    
+}
