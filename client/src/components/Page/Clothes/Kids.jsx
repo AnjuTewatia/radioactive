@@ -113,53 +113,6 @@ const Kids = () => {
           </Flex>
         </Box>
 
-        {/* <Box>
-          <button onClick={() => handleCategory("Womens")}>Womens</button>
-          <button onClick={() => handleCategory("KIDS")}>KIDS</button>
-
-          <HStack justify="center" spacing="24px">
-            <Center h="50px">
-              <Link to="/clothes">
-                <button onClick={() => handleCategory("Mens")}>Mens</button>
-              </Link>
-            </Center>
-
-            <Center padding="0px 20px" h="50px">
-              <button onClick={() => handleCategory("KIDS")}>KIDS</button>
-            </Center>
-
-            <Center h="50px">
-              
-                <Text fontWeight="extrabold" fontSize={"20px"}>
-                 
-                  Electronics
-                </Text>
-             
-            </Center>
-
-            <Center h="50px">
-              <Link to="/cosmetics">
-                <Text fontWeight="extrabold" fontSize={"20px"}>
-                  {" "}
-                  Cosmetics
-                </Text>
-              </Link>
-            </Center>
-
-            <Center h="50px">
-              <Link to="/jewellery">
-                <Text fontWeight="extrabold" fontSize={"20px"}>
-                  {" "}
-                  Jewellery
-                </Text>
-              </Link>
-            </Center>
-          </HStack>
-
-
-          
-
-        </Box> */}
 
 
 

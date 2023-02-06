@@ -13,6 +13,7 @@ import {
   HStack,
   Center,
 } from "@chakra-ui/react";
+import "./Pagination.css"
 import React, { useEffect, useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
@@ -108,9 +109,18 @@ const Men = () => {
                     <hr />
                   </MenuList>
                 </Menu>
+               
               </Flex>
+             
             </Box>
-          </Flex>
+            <div className="pagination">
+              <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+                PREV
+              </button>
+              <button>{page}</button>
+              <button onClick={() => setPage(page + 1)}> NEXT</button>
+            </div>
+          </Flex> 
         </Box>
 
         <Box>
@@ -134,13 +144,7 @@ const Men = () => {
               />;
             })}
         </SimpleGrid>
-        <div>
-          <button disabled={page === 1} onClick={() => setPage(page - 1)}>
-            PREV
-          </button>
-          <button>{page}</button>
-          <button onClick={() => setPage(page + 1)}>NEXT</button>
-        </div>
+       
 
        
       </div>

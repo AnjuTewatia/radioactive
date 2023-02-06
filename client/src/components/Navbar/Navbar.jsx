@@ -68,28 +68,28 @@ const Navbar = () => {
                 <Link to="/clothes">
                   <Text fontWeight="extrabold" fontSize={"14px"}>
                     {" "}
-                    Cloths
+                    All Products
                   </Text>
                 </Link>
               </Center>
 
-              <Center h="50px">
+              {/* <Center h="50px">
                 <Link to="/health">
                   <Text fontWeight="extrabold" fontSize={"14px"}>
                     {" "}
                     Health
                   </Text>
                 </Link>
-              </Center>
+              </Center> */}
 
-              <Center h="50px">
+              {/* <Center h="50px">
                 <Link to="/electronics">
                   <Text fontWeight="extrabold" fontSize={"14px"}>
                     {" "}
                     Electronics
                   </Text>
                 </Link>
-              </Center>
+              </Center> */}
             </HStack>
           </GridItem>
 

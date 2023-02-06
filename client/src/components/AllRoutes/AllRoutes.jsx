@@ -12,6 +12,7 @@ import Jewellery from "../page/Clothes/Jewellery"
 import  Womens from '../Page/Clothes/Womens'
 import Kids from '../Page/Clothes/Kids'
 import SingleProduct from '../Page/Clothes/SingleProduct'
+import Cart from '../Page/Cart/Cart'
 
 const AllRoutes = () => {
   return (
@@ -28,6 +29,7 @@ const AllRoutes = () => {
         <Route path="/singleproduct/:id" element={<SingleProduct/>}></Route>
 
         <Route path="/signup" element={<SignUp/>}></Route>
+        <Route path="/cart" element={<Cart/>}></Route>
 
 
 
