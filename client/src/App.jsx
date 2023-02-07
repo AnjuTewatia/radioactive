@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import AllRoutes from './components/AllRoutes/AllRoutes'
 import Footer from './components/Homepage/Footer'
+import Login from './components/Loginsignup/Login'
 
 // import './App.css'
 // import SignUp from "./components/Loginsignup/SignUp"
@@ -18,6 +19,7 @@ function App() {
       <Navbar/>
       <AllRoutes/>
     <Footer/>
+    <Login/>
        
       {/* <SingleProduct/> */}
       

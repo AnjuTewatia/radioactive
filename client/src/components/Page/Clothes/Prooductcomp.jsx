@@ -32,7 +32,7 @@ const Prooductcomp = ({ item }) => {
         box-shadow="10px 5px 5px black"
         key={item._id}
         className="imgs"
-        style={{ boxShadow: " 1px 1px 0px grey,3px 3px 1px yellow" }}
+        style={{ boxShadow: " 1px 1px 0px grey,3px 3px 1px teal" }}
         // onClick={() => console.log(item._id)}
         onClick={() => handleClick(item._id)}
         
