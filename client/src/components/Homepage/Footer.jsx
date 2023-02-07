@@ -31,18 +31,18 @@ const Footer=() => {
             </Text>
           </Stack>
           <Stack align={'flex-start'}>
-            <Text fontSize={"25px"}>CLOTHES</Text>
-            <Link href={'#'}>Mens</Link>
-            <Link href={'#'}>Womens</Link>
-            <Link href={'#'}>Kinds</Link>
+            <Text fontSize={"25px"}>Clothes</Text>
+            <Link to="/clothes">Mens</Link>
+            <Link to="/women">Womens</Link>
+            <Link to="/kids">Kinds</Link>
            
           </Stack>
           <Stack align={'flex-start'}>
             <Text fontSize={"25px"}>Products</Text>
-            <Link href={'#'}>Health</Link>
-            <Link href={'#'}>cosmetics</Link>
-            <Link href={'#'}>Electronics</Link>
-            <Link href={'#'}>jewelery</Link>
+            <Link to="/health">Health</Link>
+            <Link to="/cosmetics">cosmetics</Link>
+            <Link to="/electronics">Electronics</Link>
+            <Link to="/jewellery">jewelery</Link>
 
 
             
@@ -57,7 +57,7 @@ const Footer=() => {
             <Link href={'#'}>Legal</Link>
             <Link href={'#'}>Privacy Policy</Link>
             <Link href={'#'}>Status</Link>
-            <Link href={'#'}>Contact</Link>
+            <Link to="/signup">Contact</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <Text fontSize={"25px"}>Follow Us</Text>

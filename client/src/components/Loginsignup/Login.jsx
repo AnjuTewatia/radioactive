@@ -1,348 +1,289 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+
+// import {
+//   Flex,
+//   Link,
+//   useToast,
+//   Text,
+//   Accordion,
+//   Image,
+//   AccordionItem,
+//   AccordionIcon,
+//   AccordionButton,
+//   AccordionPanel,
+//   FormControl,
+//   FormLabel,
+//   Input,
+//   Box,
+//   FormHelperText,
+//   FormErrorMessage,
+//   Checkbox,
+//   Button,
+//   Select,
+//   Toast,
+// } from "@chakra-ui/react";
+
+// const Login = () => {
+//   const [email, setEmail] = useState("");
+//   const [phoneNumber, setPhoneNUmber] = useState();
+//   const [password, setPassword] = useState("");
+
+//   return (
+//     <div>
+//       <Flex>
+//         <Box marginLeft={"250px"} style={{ border:"2px solid grey" , height:"500px"}} >
+//           <Text fontSize={"40px"} style={{marginLeft:"200px",color:"red"}}>Login</Text>
+
+//           <FormControl mt={"20px"} ml={"30px"}>
+//             <FormLabel mt={"20px"} fontSize={"20px"}>
+//               Enter your Registered Email
+//             </FormLabel>
+//             <Input
+//               // value={email}
+//               isRequired
+//               height="50px"
+//               width="400px"
+//               fontSize="20px"
+//               type="text"
+//               placeholder="Enter your email"
+
+//             />
+
+//             <FormLabel mt={"20px"} fontSize={"20px"}>
+//               Registered Phone Number
+//             </FormLabel>
+//             <Input
+//               // value={phoneNumber}
+//               height="50px"
+//               width="400px"
+//               fontSize="20px"
+//               type="number"
+//               placeholder="Enter Phone Number"
+//             />
+//             <FormLabel mt={"20px"} fontSize={"20px"}>
+//               Enter Your Password
+//             </FormLabel>
+//             <Input
+//               // value={password}
+//               height="50px"
+//               width="400px"
+//               fontSize="20px"
+//               type="text"
+//               placeholder="Enter Phone Number"
+//             />
+//           </FormControl>
+           
+//         <Button width={"550px"} backgroundColor={"blue.200"} marginTop={"30px"}>Login</Button>
+//         </Box>
+//       </Flex>
+//     </div>
+//   );
+// };
+
+// export default Login;
+
+
+
+import React from "react";
+import { Link } from 'react-router-dom'
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  Button,
-  useDisclosure,
-  Box,
+  Flex,
+  useToast,
   Text,
-  Img,
+  Image,
+  FormControl,
   FormLabel,
   Input,
-  InputRightElement,
-  InputGroup,
-  Show,
-  useToast,
+  Box,
+  FormHelperText,
+  FormErrorMessage,
+  Checkbox,
+  Button,
 } from "@chakra-ui/react";
-import { useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-// import Homepage from "../Components/Homepage";
-import { CloseIcon } from "@chakra-ui/icons";
 const Login = () => {
   const toast = useToast();
-  const [home, setHome] = useState(false);
-  const [navigate, setNavigate] = useState(false);
-  const [data, setData] = useState({
-    name: "",
 
-    email: "",
-  });
-  const [show, setShow] = React.useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const handleClick = () => setShow(!show);
-
-  const handleChange = (e) => {
-    const { value, name } = e.target;
-
-    setData({ ...data, [name]: value });
-  };
-
-  const handelSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [phoneNumber,setPhoneNUmber]=useState()
+  const [password, setPassword] = useState("");
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (data.email && data.password) {
-      axios("https://gold-gifted-ladybug.cyclic.app/user/login", {
-        method: "POST",
-        data: data,
-        headers: {
-          "content-type": "application/json",
-        },
-      })
-        .then((res) => {
-          if (res.data.msg === "Login Successfull") {
+    const payload = { email, password };
+
+    // console.log(payload);
+
+    fetch("https://gold-gifted-ladybug.cyclic.app/user/login", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.token);
+        if (localStorage.getItem("token")) {
+          localStorage.setItem("email", payload.email);
+          setTimeout(() => {
             toast({
-              title: "Login Successfull",
-              description: "You've Logged In your account.",
-              status: "success",
-              duration: 3000,
-              isClosable: true,
+              
+              position: "bottom-left",
+              render: () => (
+                <Box color="white" p={3} bg="blue.500">
+                  {`welcome ${email} `}
+                </Box>
+              ),
             });
-            localStorage.setItem("token", res.data.token);
-            setNavigate(true);
-          } else {
-            toast({
-              title: "Wrong Credentials",
-              description: "Please Check your Email or Password.",
-              status: "error",
-              duration: 3000,
-              isClosable: true,
-            });
-          }
-        })
-        .catch((err) => {
-          let message = err.message;
+          }, 1000);
+          navigateTo("/");
+
+        } else if(!payload.password){
           toast({
-            title: "Error",
-            description: { message },
-            status: "error",
-            duration: 3000,
-            isClosable: true,
+            position: "bottom-left",
+            render: () => (
+              <Box color="white" p={3} bg="blue.500">
+                {`Wrong password`}
+              </Box>
+            ),
           });
-        });
-    } else {
-      toast({
-        title: "Some filed are Empty",
-        description: "Please fill all the fields",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
+       
+
     }
+        else {
+
+          toast({
+            position: "bottom-left",
+            render: () => (
+              <Box color="white" p={3} bg="blue.500">
+                {`please register first`}
+              </Box>
+            ),
+          });
+        }
+      })
+      .catch((err) => console.log(err));
+
+
   };
 
-  useEffect(() => {
-    onOpen();
-  }, []);
-  if (home) {
-    return <Navigate to="/" />;
-  }
-  if (navigate) {
-    return <Navigate to="/" />;
-  }
+  const navigateTo = useNavigate();
+  const GoTo = (path) => {
+    console.log("path", path);
+    navigateTo(path);
+  };
   return (
     <>
-      <Homepage />
-      <Modal
-        isCentered
-        onClose={onClose}
-        isOpen={isOpen}
-        motionPreset="slideInBottom"
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <Box w={["", "", "100vh"]} bgColor="#fff" p="10px" display="flex">
-            <Show above="md">
-              {" "}
-              <Box
-                w="30%"
-                margin="0"
-                padding="95px 20px 0px 20px"
-                textAlign="center"
-                bgColor="#FBFBFB"
-              >
-                <Box
-                  display="inline-block"
-                  width="100%"
-                  marginBottom="35px"
-                  padding="0"
-                >
-                  <Img
-                    display="inline-block"
-                    width="45px"
-                    height="45px"
-                    margin-bottom="5px"
-                    src="https://cdn-icons-png.flaticon.com/128/846/846171.png"
-                  ></Img>
-                  <Text
-                    fontSize="16px"
-                    color="#757575"
-                    fontWeight="500"
-                    margin="0"
-                    lineHeight="22px"
-                    padding="0"
-                  >
-                    Loyalty Points
-                  </Text>
-                  <Text
-                    margin="5px 0 0 0"
-                    padding="0"
-                    fontSize="12px"
-                    color="#a8a8a8"
-                    lineHeight="20px"
-                  >
-                    Earn CluesBucks on prepaid orders
-                  </Text>
-                </Box>
-                <Box
-                  display="inline-block"
-                  width="100%"
-                  marginBottom="35px"
-                  padding="0"
-                >
-                  <Img
-                    display="inline-block"
-                    width="45px"
-                    height="45px"
-                    margin-bottom="5px"
-                    src="https://static-00.iconduck.com/assets.00/shopping-cart-icon-512x462-yrde1eu0.png"
-                  ></Img>
-                  <Text
-                    font-size="16px"
-                    color="#757575"
-                    fontWeight="500"
-                    margin="0"
-                    padding="0"
-                    lineHeight="22px"
-                  >
-                    Instant Checkout
-                  </Text>
-                  <Text
-                    margin="5px 0 0 0"
-                    padding="0"
-                    fontSize="12px"
-                    color="#a8a8a8"
-                    lineHeight="20px"
-                  >
-                    Hassle-Free Payment Everytime
-                  </Text>
-                </Box>
-                <Box
-                  display="inline-block"
-                  width="100%"
-                  marginBottom="35px"
-                  padding="0"
-                >
-                  <Img
-                    display="inline-block"
-                    width="45px"
-                    height="45px"
-                    margin-bottom="5px"
-                    src="https://cdn-icons-png.flaticon.com/512/281/281648.png"
-                  ></Img>
-                  <Text
-                    font-size="16px"
-                    color="#757575"
-                    fontWeight="500"
-                    margin="0"
-                    padding="0"
-                    lineHeight="22px"
-                  >
-                    Exclusive Offers
-                  </Text>
-                  <Text
-                    margin="5px 0 0 0"
-                    padding="0"
-                    fontSize="12px"
-                    color="#a8a8a8"
-                    lineHeight="20px"
-                  >
-                    For special offers & value deals
-                  </Text>
-                </Box>
-              </Box>
-            </Show>
+      <Box>
+        <Flex>
+          <Box marginLeft={"25%"}>
+            <Text fontWeight={700} mt={"20px"} fontSize={"30px"}>
+              Returning Customers
+            </Text>
+            <Text mt={"20px"} fontSize={"20px"}>
+              If you are a registered user,
+              <br /> please enter your email and password.
+            </Text>
 
-            <Box w={["100%", "100%", "70%"]}>
-              {/* <ModalCloseButton onClick={() => setHome(true)} /> */}
-              {/* <ModalHeader p="0px 20px 0px 20px" display="flex" gap="10%">
-                <Text
-                  borderBottom="2px solid #24a3b5"
-                  color="#24a3b5"
-                  padding="0 8px 8px"
-                >
-                  <Link to="/login">Login</Link>
-                </Text>
-                <Text color="#24a3b5" padding="0 8px ">
-                  <Link to="/signup">Signup</Link>
-                </Text>
-              </ModalHeader> */}
-              <ModalHeader
-                p="0px 20px 0px 20px"
-                display="flex"
-                gap="10%"
-                justifyContent="space-between"
-              >
-                <Box display="flex" gap="10%" w="80%">
-                  {" "}
-                  <Text
-                    color="#24a3b5"
-                    padding="0 8px "
-                    borderBottom="2px solid #24a3b5"
-                  >
-                    <Link to="/login">LOGIN</Link>
-                  </Text>
-                  <Text color="#24a3b5" padding="0 8px 8px">
-                    <Link to="/signup">REGISTER</Link>
-                  </Text>
-                </Box>
-                <Box fontSize={15} fontWeight="bold">
-                  <Button
-                    bgColor="#fff"
-                    border="1px solid #E8F0FE"
-                    onClick={() => setHome(true)}
-                  >
+            <FormControl mt={"20px"}>
+              <FormLabel mt={"20px"} fontSize={"30px"}>
+                {" "}
+                E-mail *
+              </FormLabel>
+              <Input
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                height="60px"
+                width="400px"
+                fontSize="20px"
+                type="email"
+              />
+              <FormHelperText>We'll never share your email.</FormHelperText>
+              <FormErrorMessage>Email is required.</FormErrorMessage>
+
+              <FormLabel mt={"20px"} fontSize={"30px"}>
+                Password *
+              </FormLabel>
+              <Input
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                height="60px"
+                width="400px"
+                fontSize="20px"
+                type="password"
+              />
+
+              <Flex>
+                <Box>
+                  <Checkbox mt={"20px"} defaultChecked>
                     {" "}
-                    <CloseIcon />
-                  </Button>
+                    <Text>Remember Me</Text>{" "}
+                  </Checkbox>
                 </Box>
-              </ModalHeader>
+                <Box mt={"20px"} ml={"40%"}>
+                  <Text>Forget Password ?</Text>
+                </Box>
+              </Flex>
+              <Link to="/">
+              <Button
+                onClick={handleSubmit}
+                _hover={{ color: "black" }}
+                mt={"20px"}
+                height={"50px"}
+                fontSize={"20px"}
+                borderRadius={"10px"}
+                width={"200px"}
+                color="white"
+                bgColor={"blue.700"}
+              >
+                {" "}
+                Sign In
+              </Button>
+              </Link>
 
-              <Box p="20px 20px 0px 20px">
-                <form onSubmit={handelSubmit} isRequired>
-                  <FormLabel
-                    borderBottom="1px solid #ddd"
-                    width="100%"
-                    fontSize="14px"
-                    padding="6px 0px"
-                    color="#212121"
-                  >
-                    Email
-                  </FormLabel>
-
-                  <Input
-                    name="email"
-                    onChange={handleChange}
-                    value={data.email}
-                    isRequired
-                    type="email"
-                    placeholder="Enter Email"
+              <Text mt={"30px"} color={"gray"}>
+                or log in from your account from
+              </Text>
+              <Box mt={"15px"} border={"1px solid black"} width="250px">
+                {" "}
+                <Flex>
+                  <Image
+                    ml={"20px"}
+                    src="https://www.aeropostale.com/on/demandware.static/Sites-aeropostale-Site/-/default/dw1c2fbe2a/images/Facebook.png"
+                    alt="abc"
                   />
-
-                  <FormLabel
-                    borderBottom="1px solid #ddd"
-                    width="100%"
-                    fontSize="14px"
-                    padding="6px 0px"
-                    color="#212121"
-                  >
-                    Password
-                  </FormLabel>
-                  <InputGroup size="md">
-                    <Input
-                      name="password"
-                      onChange={handleChange}
-                      value={data.password}
-                      isRequired
-                      pr="4.5rem"
-                      type={show ? "text" : "password"}
-                      placeholder="Enter password"
-                    />
-                    <InputRightElement width="4.5rem">
-                      <Button h="1.75rem" size="sm" onClick={handleClick}>
-                        {show ? "Hide" : "Show"}
-                      </Button>
-                    </InputRightElement>
-                  </InputGroup>
-
-                  <Input
-                    textAlign="center "
-                    fontSize="16px"
-                    fontWeight="500"
-                    borderRadius="3px"
-                    backgroundClip="padding-box"
-                    border="none"
-                    outline="none"
-                    width="100%"
-                    padding="auto 20px"
-                    display="inline-block"
-                    whiteSpace="nowrap"
-                    bgGradient="linear(0deg,#ff934b 0%,#ff5e62 100%)"
-                    w="50%"
-                    type="submit"
-                    placeholder="Login"
-                    color="#fff"
-                    m="10px 0px"
-                  />
-                </form>
+                  <Text fontSize={"17px"} ml={"5px"} mt={"10px"}>
+                    LOGIN WITH FACEBOOK
+                  </Text>
+                </Flex>
               </Box>
-            </Box>
+
+              {/* <Box mt={"20px"}>
+                <Text color={"gray"} fontSize={"14px"}>
+                  Please see our Privacy Policy. California residents, see our
+                  California Privacy <br /> Notice and Do Not Sell My Personal
+                  Information page.
+                </Text>
+              </Box> */}
+            </FormControl>
           </Box>
-        </ModalContent>
-      </Modal>
+          {/* <hr
+            style={{
+              border: "none",
+              borderLeft: "1px solid hsla(200, 10%, 50%,100)",
+              height: "100vh",
+              width: "1px",
+              marginLeft: "10%",
+              marginTop: "30px",
+            }}
+          /> */}
+
+          
+        </Flex>
+      </Box>
     </>
   );
 };

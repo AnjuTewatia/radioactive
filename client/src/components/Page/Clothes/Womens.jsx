@@ -14,6 +14,8 @@ import {
   Center,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import "./Pagination.css";
+
 // import React, {  useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
@@ -43,7 +45,7 @@ const Womens = () => {
   };
 
   const handleSort = (sort) => {
-    console.log(sort)
+    console.log(sort);
     setSort(sort);
   };
 
@@ -102,67 +104,34 @@ const Womens = () => {
                     <hr />
                     {/* <MenuItem fontWeight="bold">Best Seller</MenuItem> */}
                     <hr />
-                    <MenuItem fontWeight="bold" onClick={()=>handleSort("desc")}>Price High to Low</MenuItem>
+                    <MenuItem
+                      fontWeight="bold"
+                      onClick={() => handleSort("desc")}
+                    >
+                      Price High to Low
+                    </MenuItem>
                     <hr />
-                    <MenuItem fontWeight="bold"  onClick={()=>handleSort("asc")}>Price Low to High</MenuItem>
+                    <MenuItem
+                      fontWeight="bold"
+                      onClick={() => handleSort("asc")}
+                    >
+                      Price Low to High
+                    </MenuItem>
                     <hr />
                   </MenuList>
                 </Menu>
               </Flex>
             </Box>
+
+            <div className="pagination">
+              <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+                PREV
+              </button>
+              <button>{page}</button>
+              <button onClick={() => setPage(page + 1)}> NEXT</button>
+            </div>
           </Flex>
         </Box>
-
-        {/* <Box>
-          <button onClick={() => handleCategory("Womens")}>Womens</button>
-          <button onClick={() => handleCategory("KIDS")}>KIDS</button>
-
-          <HStack justify="center" spacing="24px">
-            <Center h="50px">
-              <Link to="/clothes">
-                <button onClick={() => handleCategory("Mens")}>Mens</button>
-              </Link>
-            </Center>
-
-            <Center padding="0px 20px" h="50px">
-              <button onClick={() => handleCategory("KIDS")}>KIDS</button>
-            </Center>
-
-            <Center h="50px">
-              
-                <Text fontWeight="extrabold" fontSize={"20px"}>
-                 
-                  Electronics
-                </Text>
-             
-            </Center>
-
-            <Center h="50px">
-              <Link to="/cosmetics">
-                <Text fontWeight="extrabold" fontSize={"20px"}>
-                  {" "}
-                  Cosmetics
-                </Text>
-              </Link>
-            </Center>
-
-            <Center h="50px">
-              <Link to="/jewellery">
-                <Text fontWeight="extrabold" fontSize={"20px"}>
-                  {" "}
-                  Jewellery
-                </Text>
-              </Link>
-            </Center>
-          </HStack>
-
-
-          
-
-        </Box> */}
-
-
-
 
         <SimpleGrid
           columns={[1, 2, 3, 3]}
@@ -175,15 +144,6 @@ const Womens = () => {
               return <Prooductcomp item={item} key={item._id} />;
             })}
         </SimpleGrid>
-        <div>
-          <button disabled={page === 1} onClick={() => setPage(page - 1)}>
-            PREV
-          </button>
-          <button>{page}</button>
-          <button onClick={() => setPage(page + 1)}>NEXT</button>
-        </div>
-
-       
       </div>
     );
   }

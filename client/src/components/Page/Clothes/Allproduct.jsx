@@ -13,10 +13,8 @@ import {
   HStack,
   Center,
 } from "@chakra-ui/react";
+import "./Pagination.css"
 import React, { useEffect, useState } from "react";
-import "./Pagination.css";
-
-// import React, {  useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
 import { NavLink, Link, useNavigate } from "react-router-dom";
@@ -25,7 +23,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Product } from "../../../Redux/Product/Product.action";
 import Prooductcomp from "./Prooductcomp";
 
-const Mens = () => {
+const AllProduct = () => {
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
   const [page, setPage] = useState(1);
@@ -35,7 +33,7 @@ const Mens = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(Product("Mens", page, sort, input));
+    dispatch(Product(category, page, sort, input));
   }, [category, page, sort, input]);
 
   console.log(product);
@@ -45,7 +43,7 @@ const Mens = () => {
   };
 
   const handleSort = (sort) => {
-    console.log(sort);
+    console.log(sort)
     setSort(sort);
   };
 
@@ -57,6 +55,7 @@ const Mens = () => {
     setPage(page + 1);
   };
 
+  
   if (loading) {
     return <Loading />;
   } else {
@@ -66,7 +65,7 @@ const Mens = () => {
           <Box>
             <Flex justifyContent={"space-between"}>
               <Text fontWeight={"bold"} fontSize="28px">
-                Clothes For Mens
+               All Products
               </Text>
             </Flex>
           </Box>
@@ -104,25 +103,16 @@ const Mens = () => {
                     <hr />
                     {/* <MenuItem fontWeight="bold">Best Seller</MenuItem> */}
                     <hr />
-                    <MenuItem
-                      fontWeight="bold"
-                      onClick={() => handleSort("desc")}
-                    >
-                      Price High to Low
-                    </MenuItem>
+                    <MenuItem fontWeight="bold" onClick={()=>handleSort("desc")}>Price High to Low</MenuItem>
                     <hr />
-                    <MenuItem
-                      fontWeight="bold"
-                      onClick={() => handleSort("asc")}
-                    >
-                      Price Low to High
-                    </MenuItem>
+                    <MenuItem fontWeight="bold"  onClick={()=>handleSort("asc")}>Price Low to High</MenuItem>
                     <hr />
                   </MenuList>
                 </Menu>
+               
               </Flex>
+             
             </Box>
-
             <div className="pagination">
               <button disabled={page === 1} onClick={() => setPage(page - 1)}>
                 PREV
@@ -130,8 +120,13 @@ const Mens = () => {
               <button>{page}</button>
               <button onClick={() => setPage(page + 1)}> NEXT</button>
             </div>
-          </Flex>
+          </Flex> 
         </Box>
+
+      
+
+
+
 
         <SimpleGrid
           columns={[1, 2, 3, 3]}
@@ -141,12 +136,18 @@ const Mens = () => {
         >
           {product.length > 0 &&
             product.map((item) => {
-              return <Prooductcomp item={item} key={item._id} />;
+              
+              return <Prooductcomp item={item} key={item._id}
+
+              />;
             })}
         </SimpleGrid>
+       
+
+       
       </div>
     );
   }
 };
 
-export default Mens;
+export default AllProduct;

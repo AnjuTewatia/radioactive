@@ -14,6 +14,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import "./Pagination.css";
 // import React, {  useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
@@ -43,7 +44,7 @@ const Kids = () => {
   };
 
   const handleSort = (sort) => {
-    console.log(sort)
+    console.log(sort);
     setSort(sort);
   };
 
@@ -102,20 +103,34 @@ const Kids = () => {
                     <hr />
                     {/* <MenuItem fontWeight="bold">Best Seller</MenuItem> */}
                     <hr />
-                    <MenuItem fontWeight="bold" onClick={()=>handleSort("desc")}>Price High to Low</MenuItem>
+                    <MenuItem
+                      fontWeight="bold"
+                      onClick={() => handleSort("desc")}
+                    >
+                      Price High to Low
+                    </MenuItem>
                     <hr />
-                    <MenuItem fontWeight="bold"  onClick={()=>handleSort("asc")}>Price Low to High</MenuItem>
+                    <MenuItem
+                      fontWeight="bold"
+                      onClick={() => handleSort("asc")}
+                    >
+                      Price Low to High
+                    </MenuItem>
                     <hr />
                   </MenuList>
                 </Menu>
               </Flex>
+
+              <div className="pagination">
+                <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+                  PREV
+                </button>
+                <button>{page}</button>
+                <button onClick={() => setPage(page + 1)}> NEXT</button>
+              </div>
             </Box>
           </Flex>
         </Box>
-
-
-
-
 
         <SimpleGrid
           columns={[1, 2, 3, 3]}
@@ -128,15 +143,6 @@ const Kids = () => {
               return <Prooductcomp item={item} key={item._id} />;
             })}
         </SimpleGrid>
-        <div>
-          <button disabled={page === 1} onClick={() => setPage(page - 1)}>
-            PREV
-          </button>
-          <button>{page}</button>
-          <button onClick={() => setPage(page + 1)}>NEXT</button>
-        </div>
-
-       
       </div>
     );
   }
