@@ -1,4 +1,5 @@
-import React from "react";
+// import React from "react";
+
 import {
   Flex,
   Link,
@@ -22,56 +23,83 @@ import {
   Toast,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useNavigate, NavLink, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useNavigate} from "react-router-dom";
+// import { useDispatch, useSelector } from "react-redux";
+
+// const SignUp = () => {
+
+
+
+
+//   const handleSubmit = () => {
+//     const payload = { name, email, password, gender, phoneNumber, role };
+
+//     console.log(payload);
+//     fetch("https://gold-gifted-ladybug.cyclic.app/user/signup", {
+//       method: "POST",
+//       body: JSON.stringify(payload),
+//       headers: {
+//         "content-type": "application/json",
+//       },
+//     })
+//       .then((res) => res.json())
+//       .then((res) => console.log(res))
+//       .catch((err) => console.log(err));
+
+
+
+
+//   };
+// };
+
+// export default SignUp;
+
+
+
+
+
+import React from 'react'
+import axios from "axios";
 
 const SignUp = () => {
-  const [name, setName] = useState("");
+    const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState("");
-  const [role, setRole] = useState("");
-
+  const [role, setRole] = useState("Guest");
   const toast = useToast();
   const navigateTo = useNavigate();
 
-  const handleSubmit = () => {
-    const payload = { name, email, password, gender, phoneNumber, role };
+  
 
-    console.log(payload);
-    fetch("https://gold-gifted-ladybug.cyclic.app/user/signup", {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+  const handleSubmit = async() => {
+        const payload = { name, email, password, gender, phoneNumber, role };
+        console.log(payload);
+        let res= await axios.post("https://gold-gifted-ladybug.cyclic.app/user/signup",payload)
+        console.log(res)
+        if ((name, email, password, gender, phoneNumber, role)) {
+          toast({
+            position: "bottom-left",
+            render: () => (
+              <Box color="white" p={3} bg="blue.500">
+                {`welcome ${name} you have successfully registered`}
+              </Box>
+            ),
+          });
+          navigateTo("/login");
+        } else {
+          toast({
+            title: " please add all credentials",
+            description: "",
+            status: "error",
+            duration: 4000,
+            isClosable: true,
+          });
+        }
 
-    if ((name, email, password, gender, phoneNumber, role)) {
-      toast({
-        position: "bottom-left",
-        render: () => (
-          <Box color="white" p={3} bg="blue.500">
-            {`welcome ${name} you have successfully registered`}
-          </Box>
-        ),
-      });
-      navigateTo("/login");
-    } else {
-      toast({
-        title: " please add all credentials",
-        description: "",
-        status: "error",
-        duration: 4000,
-        isClosable: true,
-      });
-    }
-
-    return (
+  }
+      return (
       <>
         <Flex>
           <Box>
@@ -88,6 +116,11 @@ const SignUp = () => {
             />
           </Box>
 
+
+{/* first half */}
+
+
+
           <Box mr="70px" paddingTop={"150px"}>
             <Text fontWeight={"430"} fontSize={"50px"}>
               {" "}
@@ -97,40 +130,51 @@ const SignUp = () => {
             <hr />
             <Flex>
               <Box>
-                {/* <form > */}
+               
                   <FormControl mt={"20px"}>
                     <FormLabel mt={"20px"} fontSize={"30px"}>
-                      First Name *
+                      Name *
                     </FormLabel>
                     <Input
+                    value={name}
                       height="60px"
                       width="550px"
                       fontSize="20px"
                       type="text"
+                      onChange={(e)=>setName(e.target.value)}
+                      isRequired={true}
                     />
 
                     <FormLabel mt={"20px"} fontSize={"30px"}>
                       Phone *
                     </FormLabel>
                     <Input
+                    value={phoneNumber}
+                    onChange={(e)=>setphoneNumber(e.target.value)}
                       height="60px"
                       width="550px"
                       fontSize="20px"
                       type="text"
                       placeholder="Enter Phone Number"
+                      isRequired={true}
                     />
 
                     <FormLabel mt={"20px"} fontSize={"30px"}>
                       Select Gender *
                       <br />
                       <select
+                      value={gender}
+                      onChange={(e)=>setGender(e.target.value)}
+                      
                         style={{
+                        
                           height: "60px",
                           width: "550px",
                           fontSize: "20px",
                           border: "1px solid grey",
                         }}
                         placeholder="Gender"
+                        isRequired={true}
                       >
                         <option value="">select gender</option>
 
@@ -144,13 +188,18 @@ const SignUp = () => {
                       Select Role *
                       <br />
                       <select
+                      value={role}
+                      onChange={(e)=>setRole(e.target.value)}
+                      
                         style={{
                           height: "60px",
                           width: "550px",
                           fontSize: "20px",
                           border: "1px solid grey",
+
                         }}
-                        placeholder="Gender"
+                        placeholder="role"
+                        isRequired={true}
                       >
                         <option value="">select Role</option>
 
@@ -164,10 +213,16 @@ const SignUp = () => {
                       E-mail *
                     </FormLabel>
                     <Input
+                    value={email}
+                    onChange={(e)=>setEmail(e.target.value)}
+                    isRequired={true}
+                    
+                
                       height="60px"
                       width="550px"
                       fontSize="20px"
                       type="email"
+
                     />
                     <FormHelperText>
                       We'll never share your email.
@@ -178,11 +233,15 @@ const SignUp = () => {
                       Password *
                     </FormLabel>
                     <Input
+                    value={password}
+                    onChange={(e)=>setPassword(e.target.value)}
+                    isRequired={true}
+                    
                       height="60px"
                       width="550px"
                       fontSize="20px"
                       type="password"
-                      Show
+                      
                     />
                   </FormControl>
                   <Checkbox mt={"20px"} defaultChecked>
@@ -198,11 +257,13 @@ const SignUp = () => {
                     width={"200px"}
                     bgColor={"blue.600"}
                     type="submit"
+                    onClick={handleSubmit}
                   >
                     {" "}
                     Apply
                   </Button>
-                {/* </form> */}
+                  
+                
               </Box>
               <Box position={"fixed"} mr={"10%"} ml={"30%"}>
                 <hr />
@@ -211,15 +272,9 @@ const SignUp = () => {
             </Flex>
           </Box>
         </Flex>
-        {/* </Flex> */}
+       
       </>
     );
-  };
-};
+}
 
-export default SignUp;
-
-
-
-
-
+export default SignUp

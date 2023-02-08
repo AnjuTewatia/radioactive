@@ -99,10 +99,12 @@ const Navbar = () => {
               </Center>
 
               <Center h="50px">
+                <Link to="/login">
                 <Text fontWeight="extrabold" fontSize={"14px"}>
                   {" "}
                   Login
                 </Text>
+                </Link>
               </Center>
               <Center h="50px">
                 <Link to="/signup">

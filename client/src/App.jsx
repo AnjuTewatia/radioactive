@@ -4,9 +4,10 @@ import AllRoutes from './components/AllRoutes/AllRoutes'
 import Footer from './components/Homepage/Footer'
 // import SignUp from './components/Loginsignup/SignUp'
 
-// import './App.css'
+import './App.css'
 import SignUp from "./components/Loginsignup/SignUp"
 import Navbar from './components/Navbar/Navbar'
+import Checkout from './components/Page/Cart/Checkout'
 import SingleProduct from './components/Page/Clothes/SingleProduct'
 // import Carousel  from "./components/utility/Carosel"
 
@@ -20,9 +21,9 @@ function App() {
       <AllRoutes/>
     <Footer/>
     {/* <Login/> */}
-    <SignUp/>
+    {/* <SignUp/> */}
        
-      {/* <SingleProduct/> */}
+     {/* <Checkout/> */}
       
     </div>
   )
