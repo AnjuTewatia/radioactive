@@ -114,9 +114,11 @@ const Navbar = () => {
               </Center>
 
               <Center h="50px">
+                <Link to="/cart">
                 <CalendarIcon fontWeight="extrabold" fontSize={"20px"}>
                   {" "}
                 </CalendarIcon>
+                </Link>
               </Center>
             </HStack>
           </GridItem>

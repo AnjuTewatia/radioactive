@@ -21,8 +21,10 @@ import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { MdLocalShipping } from 'react-icons/md';
 // import "../index.css";
 import { useDispatch } from 'react-redux';
+import { addcart } from "../../../Redux/Cart/Cart.action";
 
 const SingleProduct = () => {
+  const dispatch=useDispatch()
   const [data,setData]=useState({})
   const [product, setProduct] = useState({});
   const [curimg , setImg]=useState(product.image4)
@@ -94,7 +96,8 @@ const SingleProduct = () => {
                 <Image height={"100px"}   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-9-Iu4rY2krOUXQeIgPflMUaBvnMoIY0-uA&usqp=CAU"/>
               </Text>
              
-              <Button  mt="20px" width={"100%"}backgroundColor={"blue.200"}>Add To Cart</Button> <br />
+              <Button  mt="20px" width={"100%"}backgroundColor={"blue.200"}
+               onClick={()=>dispatch(addcart(product))}>Add To Cart</Button> <br />
               <Button  mt="20px" width={"100%"} backgroundColor={"blue.300"}>Checkout</Button>
             </Box>
           </Flex>
