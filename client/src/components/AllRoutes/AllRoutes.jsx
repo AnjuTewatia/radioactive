@@ -7,7 +7,6 @@ import Health from '../page/Clothes/Health'
 import Home from '../Homepage/Home'
 // import Bags from "../pages/Page"
 import AllProduct from "../Page/Clothes/Allproduct"
-import SignUp from "../Loginsignup/signUp"
 import Jewellery from "../page/Clothes/Jewellery"
 import  Womens from '../Page/Clothes/Womens'
 import Kids from '../Page/Clothes/Kids'
@@ -15,6 +14,8 @@ import SingleProduct from '../Page/Clothes/SingleProduct'
 import Cart from '../Page/Cart/Cart'
 import Mens from '../Page/Clothes/Mens'
 import Login from '../Loginsignup/Login'
+import SignUp from '../Loginsignup/SignUp'
+import Checkout from '../Page/Cart/Checkout'
 
 const AllRoutes = () => {
   return (
@@ -34,6 +35,7 @@ const AllRoutes = () => {
         <Route path="/signup" element={<SignUp/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path="/cart" element={<Cart/>}></Route>
+        <Route path="/checkout" element={<Checkout/>}></Route>
 
 
 

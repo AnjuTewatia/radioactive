@@ -20,9 +20,12 @@ import { useParams } from "react-router-dom";
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { MdLocalShipping } from 'react-icons/md';
 // import "../index.css";
+import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
+import { addcart } from "../../../Redux/Cart/Cart.action";
 
 const SingleProduct = () => {
+  const dispatch=useDispatch()
   const [data,setData]=useState({})
   const [product, setProduct] = useState({});
   const [curimg , setImg]=useState(product.image4)
@@ -79,11 +82,11 @@ const SingleProduct = () => {
              
                 {product.title}
               </Heading>
-              <Text  mt="20px"  fontSize="lg" fontWeight="bold">
+              <Text  mt="20px"  fontSize="lg" fontWeight="bold" >
                 SoldBy:
                 {product.soldby}
               </Text>
-              <Text  mt="20px"  fontSize="lg" fontWeight="bold">
+              <Text  mt="20px"  fontSize="lg" fontWeight="bold" >
                 Price:
                 {product.price}
               </Text>
@@ -93,9 +96,11 @@ const SingleProduct = () => {
               <Text>Rating:
                 <Image height={"100px"}   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-9-Iu4rY2krOUXQeIgPflMUaBvnMoIY0-uA&usqp=CAU"/>
               </Text>
-             
-              <Button  mt="20px" width={"100%"}backgroundColor={"blue.200"}>Add To Cart</Button> <br />
-              <Button  mt="20px" width={"100%"} backgroundColor={"blue.300"}>Checkout</Button>
+             <Link to="/cart">
+              <Button  mt="20px" width={"100%"}backgroundColor={"blue.200"}
+               onClick={()=>dispatch(addcart(product))} color={"black"}>Add To Cart</Button> <br />
+               </Link>
+              {/* <Button  mt="20px" width={"100%"} backgroundColor={"blue.300"}>Checkout</Button> */}
             </Box>
           </Flex>
         </Box>

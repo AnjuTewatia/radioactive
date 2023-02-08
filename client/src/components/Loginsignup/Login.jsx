@@ -240,7 +240,7 @@ const Login = () => {
                 bgColor={"blue.700"}
               >
                 {" "}
-                Sign In
+               Login 
               </Button>
               </Link>
 

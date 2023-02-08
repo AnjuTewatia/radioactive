@@ -100,7 +100,7 @@ const Cosmetics = () => {
                   >
                     <MenuItem fontWeight="bold">Featured</MenuItem>
                     <hr />
-                   
+
                     <hr />
                     <MenuItem
                       fontWeight="bold"
