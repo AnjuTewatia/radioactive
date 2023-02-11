@@ -14,7 +14,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import "./Pagination.css";
+// import "./Pagination.css";
 
 // import React, {  useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";

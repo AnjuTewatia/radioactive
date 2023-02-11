@@ -1,32 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import AllRoutes from './components/AllRoutes/AllRoutes'
-import Footer from './components/Homepage/Footer'
-// import SignUp from './components/Loginsignup/SignUp'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import AllRoutes from "./components/AllRoutes/AllRoutes";
+import Footer from "./components/Homepage/Footer";
 
-import './App.css'
-import SignUp from "./components/Loginsignup/SignUp"
-import Navbar from './components/Navbar/Navbar'
-import Checkout from './components/Page/Cart/Checkout'
-import SingleProduct from './components/Page/Clothes/SingleProduct'
-// import Carousel  from "./components/utility/Carosel"
-
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  
-
   return (
     <div className="App">
-      <Navbar/>
-      <AllRoutes/>
-    <Footer/>
-    {/* <Login/> */}
-    {/* <SignUp/> */}
-       
-     {/* <Checkout/> */}
-      
+      <Navbar />
+      <AllRoutes />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
