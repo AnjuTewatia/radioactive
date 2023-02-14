@@ -5,13 +5,15 @@ import Footer from "./components/Homepage/Footer";
 
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
+import Admin from "./admin/Admin";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar />
       <AllRoutes />
-      <Footer />
+      <Footer /> */}
+      <Admin/>
     </div>
   );
 }
