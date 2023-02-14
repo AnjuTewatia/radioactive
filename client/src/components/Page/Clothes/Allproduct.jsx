@@ -13,7 +13,7 @@ import {
   HStack,
   Center,
 } from "@chakra-ui/react";
-// import "./pagination.css"
+import "./Pagination.css";
 import React, { useEffect, useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
@@ -43,7 +43,7 @@ const AllProduct = () => {
   };
 
   const handleSort = (sort) => {
-    console.log(sort)
+    console.log(sort);
     setSort(sort);
   };
 
@@ -55,7 +55,6 @@ const AllProduct = () => {
     setPage(page + 1);
   };
 
-  
   if (loading) {
     return <Loading />;
   } else {
@@ -65,7 +64,7 @@ const AllProduct = () => {
           <Box>
             <Flex justifyContent={"space-between"}>
               <Text fontWeight={"bold"} fontSize="28px">
-               All Products
+                All Products
               </Text>
             </Flex>
           </Box>
@@ -103,15 +102,23 @@ const AllProduct = () => {
                     <hr />
                     {/* <MenuItem fontWeight="bold">Best Seller</MenuItem> */}
                     <hr />
-                    <MenuItem fontWeight="bold" onClick={()=>handleSort("desc")}>Price High to Low</MenuItem>
+                    <MenuItem
+                      fontWeight="bold"
+                      onClick={() => handleSort("desc")}
+                    >
+                      Price High to Low
+                    </MenuItem>
                     <hr />
-                    <MenuItem fontWeight="bold"  onClick={()=>handleSort("asc")}>Price Low to High</MenuItem>
+                    <MenuItem
+                      fontWeight="bold"
+                      onClick={() => handleSort("asc")}
+                    >
+                      Price Low to High
+                    </MenuItem>
                     <hr />
                   </MenuList>
                 </Menu>
-               
               </Flex>
-             
             </Box>
             <div className="pagination">
               <button disabled={page === 1} onClick={() => setPage(page - 1)}>
@@ -120,13 +127,8 @@ const AllProduct = () => {
               <button>{page}</button>
               <button onClick={() => setPage(page + 1)}> NEXT</button>
             </div>
-          </Flex> 
+          </Flex>
         </Box>
-
-      
-
-
-
 
         <SimpleGrid
           columns={[1, 2, 3, 3]}
@@ -136,15 +138,9 @@ const AllProduct = () => {
         >
           {product.length > 0 &&
             product.map((item) => {
-              
-              return <Prooductcomp item={item} key={item._id}
-
-              />;
+              return <Prooductcomp item={item} key={item._id} />;
             })}
         </SimpleGrid>
-       
-
-       
       </div>
     );
   }

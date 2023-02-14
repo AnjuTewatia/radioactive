@@ -24,40 +24,6 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate} from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-
-// const SignUp = () => {
-
-
-
-
-//   const handleSubmit = () => {
-//     const payload = { name, email, password, gender, phoneNumber, role };
-
-//     console.log(payload);
-//     fetch("https://gold-gifted-ladybug.cyclic.app/user/signup", {
-//       method: "POST",
-//       body: JSON.stringify(payload),
-//       headers: {
-//         "content-type": "application/json",
-//       },
-//     })
-//       .then((res) => res.json())
-//       .then((res) => console.log(res))
-//       .catch((err) => console.log(err));
-
-
-
-
-//   };
-// };
-
-// export default SignUp;
-
-
-
-
-
 import React from 'react'
 import axios from "axios";
 

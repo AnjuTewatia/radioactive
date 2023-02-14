@@ -14,8 +14,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-// import "./Pagination.css";
-// import React, {  useState } from "react";
+import "./Pagination.css";
 import { AiOutlineShopping } from "react-icons/ai";
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
 import { NavLink, Link, useNavigate } from "react-router-dom";
@@ -61,11 +60,11 @@ const Kids = () => {
   } else {
     return (
       <div>
-        <Box w={"75%"} m="auto" paddingTop={"125px"}>
+        <Box w={"75%"} m="auto" paddingTop={"160px"}>
           <Box>
             <Flex justifyContent={"space-between"}>
               <Text fontWeight={"bold"} fontSize="28px">
-                Clothes
+                KIDS CLOTHES
               </Text>
             </Flex>
           </Box>

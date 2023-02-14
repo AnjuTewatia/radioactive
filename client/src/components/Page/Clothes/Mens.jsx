@@ -14,9 +14,8 @@ import {
   Center,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-// import "./Pagination.css";
+import "./Pagination.css";
 
-// import React, {  useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
 import { NavLink, Link, useNavigate } from "react-router-dom";
@@ -66,7 +65,7 @@ const Mens = () => {
           <Box>
             <Flex justifyContent={"space-between"}>
               <Text fontWeight={"bold"} fontSize="28px">
-                Clothes For Mens
+                CLOTHES FOR MENS
               </Text>
             </Flex>
           </Box>
