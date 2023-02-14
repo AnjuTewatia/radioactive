@@ -10,10 +10,9 @@ import Admin from "./admin/Admin";
 function App() {
   return (
     <div className="App">
-      {/* <Navbar />
+      <Navbar />
       <AllRoutes />
-      <Footer /> */}
-      <Admin/>
+      <Footer />
     </div>
   );
 }
