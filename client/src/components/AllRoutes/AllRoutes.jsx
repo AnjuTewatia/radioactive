@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import SimpleSidebar from "../../admin/Admin";
 import Home from "../Homepage/Home";
 import Login from "../Loginsignup/Login";
 import SignUp from "../Loginsignup/SignUp";
@@ -33,9 +34,9 @@ const AllRoutes = () => {
         <Route
           path="/singleproduct/:id"
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <SingleProduct />
-            </PrivateRoute>
+            // {/* </PrivateRoute> */}
           }
         ></Route>
 
@@ -44,19 +45,20 @@ const AllRoutes = () => {
         <Route
           path="/cart"
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <Cart />
-            </PrivateRoute>
+            // </PrivateRoute>
           }
         ></Route>
         <Route
           path="/checkout"
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <Checkout />
-            </PrivateRoute>
+            // {/* </PrivateRoute> */}
           }
         ></Route>
+        <Route path="admin" element={<SimpleSidebar />}></Route>
       </Routes>
     </>
   );
