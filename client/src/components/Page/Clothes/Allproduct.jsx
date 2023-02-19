@@ -32,6 +32,9 @@ const AllProduct = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+
+
+
   useEffect(() => {
     dispatch(Product(category, page, sort, input));
   }, [category, page, sort, input]);
@@ -54,6 +57,8 @@ const AllProduct = () => {
   const hamdlePagination = () => {
     setPage(page + 1);
   };
+
+
 
   if (loading) {
     return <Loading />;
@@ -145,5 +150,8 @@ const AllProduct = () => {
     );
   }
 };
+
+
+
 
 export default AllProduct;
