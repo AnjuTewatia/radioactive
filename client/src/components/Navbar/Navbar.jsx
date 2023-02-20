@@ -123,10 +123,22 @@ const Navbar = () => {
                 </Link>
               </Center>
             </HStack>
+
+            <Center h="50px">
+                <Link to="/admin">
+                  <Text fontWeight="extrabold" fontSize={"14px"}>
+                    {" "}
+                    Admin
+                  </Text>
+                </Link>
+              </Center>
+
           </GridItem>
         </Grid>
       </Wrap>
       <hr />
+
+
 
       <HStack justify="center" spacing="24px">
         <Center h="50px">

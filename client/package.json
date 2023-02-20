@@ -19,6 +19,8 @@
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "recharts": "^2.4.2",
+    "react-chartjs-2": "^5.2.0",
+    "chartjs": "^0.3.24",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "web-vitals": "^2.1.4"
