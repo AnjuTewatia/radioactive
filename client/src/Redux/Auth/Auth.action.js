@@ -10,7 +10,7 @@ import axios from "axios";
 
 const url = "https://gold-gifted-ladybug.cyclic.app/";
 
-const Login = (data) => async (dispatch) => {
+export const Login = (data) => async (dispatch) => {
   try {
     await axios
       .post(`${url}/login`, data)
@@ -29,7 +29,7 @@ const Login = (data) => async (dispatch) => {
   }
 };
 
-const Signup = (data) => async (dispatch) => {
+export const Signup = (data) => async (dispatch) => {
   try {
     await axios
       .post(`${url}/signup`, data)
@@ -47,8 +47,8 @@ const Signup = (data) => async (dispatch) => {
     return err.response.data;
   }
 };
-const Logout = () => {
+ export const Logout = () => {
   dispatch({ type: AUTH_LOGOUT });
 };
 
-module.exports = { Login, Signup, Logout };
+// modules.export = { Login, Signup, Logout }; export 

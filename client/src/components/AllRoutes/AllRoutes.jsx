@@ -16,6 +16,13 @@ import Mens from "../Page/Clothes/Mens";
 import SingleProduct from "../Page/Clothes/SingleProduct";
 import Womens from "../Page/Clothes/Womens";
 import PrivateRoute from "./PrivateRoute";
+import AdminDshboardPage from "../Page/AdminPage/AdminDshboardPage";
+import AdminShowProduct from "../Page/AdminPage/AdminShowProduct";
+import Navbar from "../AdminComponents/AdminNavbar/Navbar";
+import AdminAddProduct from "../AdminComponents/AdminProduct/AdminAddProduct";
+import AdminUpdate from "../AdminComponents/AdminProduct/AdminUpdate";
+import AdminLogin from "../Page/AdminPage/AdminLogin";
+import AdminShowUser from "../Page/AdminPage/AdminShowUser";
 
 const AllRoutes = () => {
   return (
@@ -58,7 +65,24 @@ const AllRoutes = () => {
             // {/* </PrivateRoute> */}
           }
         ></Route>
-        <Route path="admin" element={<SimpleSidebar />}></Route>
+        {/* <Route path="admin" element={<SimpleSidebar />}></Route> */}
+        <Route path="/admin" element={
+          <>
+          <Navbar/>
+        <AdminDshboardPage/>
+        </>
+        }/>
+        <Route path="/admin/product" element={<AdminShowProduct/>}/>
+        <Route path="/admin/addProduct" element={<AdminAddProduct/>}/>
+        <Route path="/admin/update/:id" element={<AdminUpdate/>}/>
+        <Route path="/admin/login" element={<AdminLogin/>}/>
+        <Route path="/admin/user" element={
+          <>
+          <Navbar/>
+        <AdminShowUser/>
+        </>
+
+        }/>
       </Routes>
     </>
   );
