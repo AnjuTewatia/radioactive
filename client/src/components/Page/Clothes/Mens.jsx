@@ -14,7 +14,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import "./Pagination.css";
+// import "./Pagination.css";
 
 import { AiOutlineShopping } from "react-icons/ai";
 import { HiOutlineArrowsUpDown } from "react-icons/hi2";
@@ -122,7 +122,8 @@ const Mens = () => {
               </Flex>
             </Box>
 
-            <div className="pagination">
+            <div className="pagination" style={{ justifyContent: "space-between",
+    color: "blue"}}>
               <button disabled={page === 1} onClick={() => setPage(page - 1)}>
                 PREV
               </button>
