@@ -19,6 +19,7 @@ const NavItem = ({ icon, name, link }) => {
         _hover={{
           bg: "#02B862",
           color: "white",
+          // paddingTop:"160px"
         }}
       >
         {icon && (

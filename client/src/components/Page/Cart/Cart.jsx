@@ -18,8 +18,9 @@ const Cart = () => {
           boxShadow="rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"
           ml={"300px"}
           width={"50%"}
+         
         >
-          <Text fontSize={"4xl"} ml={"200px"} mb="40px" color={"blue"}>
+          <Text fontSize={"4xl"} ml={"200px"} mb="40px">
             Cart Page{" "}
           </Text>
           <SimpleGrid
@@ -62,6 +63,7 @@ const Cart = () => {
                     <Button
                       mt="20px"
                       width={"100%"}
+                      mb="40px"
                       backgroundColor={"blue.300"}
                     >
                       Checkout

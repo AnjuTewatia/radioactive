@@ -1,6 +1,5 @@
-
 import React from "react";
-import { Box, IconButton, useBreakpointValue,Button,Icon } from "@chakra-ui/react";
+import { Box, IconButton, useBreakpointValue,Button,Icon, SimpleGrid } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import {  BiRightArrowAlt } from "react-icons/bi";
 import {  AiFillCaretLeft,AiFillCaretRight } from "react-icons/ai";
@@ -11,7 +10,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import { AiFillDollarCircle } from "react-icons/ai";
-// import { setItem } from "./utility";
+import { setItem } from "../utility/localStorage";
 import { useNavigate } from "react-router";
 import {
   Text,
@@ -21,6 +20,7 @@ import {
   Image,
   Stack,
   Flex,
+  
 } from "@chakra-ui/react";
 
 // Settings for the slider
@@ -38,10 +38,10 @@ export default function Carousel() {
   // change the state
   const [slider, setSlider] = React.useState(1);
   const navigate=useNavigate();
-//   const handleClick=(item)=>{
-//     setItem("singleproduct",item)
-//   navigate("/jewelery/singleproduct")
-// }
+  const handleClick=(item)=>{
+    setItem("singleproduct",item)
+  navigate("/electronics")
+}
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
@@ -50,30 +50,29 @@ export default function Carousel() {
 
   // These are the images used in the slide
   const [data, setData] = useState([]);
-  
+  // const navigate=useNavigate();
+
+  //   const handleClick=(item)=>{
+  //       setItem("singleproduct",item)
+  //     navigate("/clothes/singleproduct")
+  //  }
   useEffect(() => {
     axios
-      .get("https://gold-gifted-ladybug.cyclic.app/product?category=jewellery")
+      .get("https://gold-gifted-ladybug.cyclic.app/product?category=electronics")
       .then((response) => {
-        // console.log("res", response.data);
-        console.log(response)
-        console.log(data)
+        console.log("res", response.data);
         setData(response.data);
       });
   }, []);
 
   return (
     <Box
-     
+      position={"relative"}
       height={"600px"}
       width={"100%"}
-      // mt={"300px"}
-      // z-Index={"99"}
-      mb={"30px"}
-     
       overflow={"hidden"}
     >
-     
+      {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
         type="text/css"
@@ -93,12 +92,11 @@ export default function Carousel() {
         position="absolute"
         left={side}
         top={top}
-        mt={"400px"}
         transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickPrev()}
       >  
-   <Button><AiFillCaretLeft color="black" /></Button>
+   <Button   backgroundColor={"blue.300"}><AiFillCaretLeft color="black" /></Button>
       </IconButton>
       {/* Right Icon */}
       <IconButton
@@ -108,28 +106,69 @@ export default function Carousel() {
         position="absolute"
         right={side}
         top={top}
-        mt={"400px"}
-        transform={"translate(0% ,-50%)"}
+        transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickNext()}
       >
-     <Button><AiFillCaretRight color="black" /></Button>
+     <Button   backgroundColor={"blue.300"}><AiFillCaretRight color="black" /></Button>
       </IconButton>
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {data.map((el, index) => (
-          <Card mt={"80px"}   cursor="pointer" onClick={()=>handleClick(el)} 
-           maxW="sm">
+          <Card className="anju" cursor="pointer" columns={[1, 2, 2, 2]} gap={10} 
+           height="460px"  onClick={()=>handleClick(el)} maxW="sm"  style={{boxShadow:"5px 10px #888888" }} ml="53px"> 
             <CardBody>
               <Image
-              columns={[1, 1, 1,3]}
-                width="150%"
-                height="500px"
-                src={el.url}
-                alt="carousel img"
+                id="hov"
+                ml="20px"
+                width="250px"
+                height="200px"
+                src={el.image1}
+                alt="Green double couch with wooden legs"
                 borderRadius="lg"
               />
-              
+              <Stack spacing="2">
+                <Text noOfLines={[1]} fontWeight="bold" size="xs">
+                  {el.title}
+                </Text>
+                <Text fontWeight="bold" fontSize="lg"> Price:
+                  ${el.price}
+                </Text>
+                <Box mb="15px">
+                  {Array(5)
+                    .fill("")
+                    .map((_, i) => {
+                      let rating = Math.ceil(Math.random() * 3);
+
+                      return <Icon
+                        as={AiFillStar}
+                        key={i}
+                        color={i <= rating ? "gold" : "gray.300"}
+                      />
+                    })}
+                </Box>
+
+                <Text ml="30px" textAlign="center" fontSize="lg">
+                  <Flex ml="80px">
+                    sold-by - <Text fontWeight="bold">{el.soldby}</Text>
+                  </Flex>
+                </Text>
+                <Box>
+             
+                  <Flex marginLeft="80px" textAlign="bottom">
+                    <Text mr="5px">$1.00/2</Text>
+                    <AiFillDollarCircle
+                      mr="5px"
+                      mt="2px"
+                      width="30px"
+                      height="30px"
+                      color="teal"
+                    />
+                    <Text ml="5px">Cashback</Text>
+                  </Flex>
+                </Box>
+                <Text color="teal" mb="30px">Free shipping with $99 orders</Text>
+              </Stack>
             </CardBody>
           </Card>
         ))}

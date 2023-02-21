@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -73,10 +74,10 @@ const AdminUpdate = () => {
   };
   return (
     <div>
-      <Heading textAlign={"center"} pt={"20px"}>
+      <Heading textAlign={"center"} pt={"150px"} mb="30px">
         Update Product
       </Heading>
-      <Flex justify={"center"} width={"100%"} bg={"whiteAlpha.800"} mt={"15"}>
+      <Flex justify={"center"} width={"70%"} bg={"whiteAlpha.800"} mt={"15"} margin="auto">
         <form
           style={{
             boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
@@ -153,7 +154,7 @@ const AdminUpdate = () => {
             spacing={"10"}
             direction={{ base: "column", sm: "row" }}
           >
-            <Box width={{ base: "100%", sm: "100%" }}>
+            {/* <Box width={{ base: "100%", sm: "100%" }}>
               <FormControl>
                 <FormLabel>Main-Category</FormLabel>
                 <Select
@@ -166,8 +167,8 @@ const AdminUpdate = () => {
                   <option value="sale">sale</option>
                 </Select>
               </FormControl>
-            </Box>
-            <Box width={{ base: "100%", sm: "100%" }}>
+            </Box> */}
+            {/* <Box width={{ base: "100%", sm: "100%" }}>
               <FormControl>
                 <FormLabel>Sub-Category</FormLabel>
                 <Select
@@ -194,14 +195,14 @@ const AdminUpdate = () => {
                   )}
                 </Select>
               </FormControl>
-            </Box>
+            </Box> */}
           </Stack>
           <Stack
             width={{ base: "100%", sm: "100%" }}
             spacing={"10"}
             direction={{ base: "column", sm: "row" }}
           >
-            <Box width={{ base: "100%", sm: "100%" }}>
+            {/* <Box width={{ base: "100%", sm: "100%" }}>
               <FormControl>
                 <FormLabel>Price Strike</FormLabel>
                 <Input
@@ -212,8 +213,8 @@ const AdminUpdate = () => {
                   placeholder={"Discount "}
                 />
               </FormControl>
-            </Box>
-            <Box width={{ base: "100%", sm: "100%" }}>
+            </Box> */}
+            {/* <Box width={{ base: "100%", sm: "100%" }}>
               <FormControl>
                 <FormLabel>Add Stocks</FormLabel>
                 <Input
@@ -224,7 +225,7 @@ const AdminUpdate = () => {
                   placeholder={"Stocks"}
                 />
               </FormControl>
-            </Box>
+            </Box> */}
           </Stack>
           <Stack
             spacing={10}
@@ -233,6 +234,7 @@ const AdminUpdate = () => {
             direction={{ base: "column", sm: "row" }}
             justifyContent={{ base: "center", sm: "center", lg: "flex-end" }}
           >
+          {/* <Link to="/admin"> */}
             <Button
               width={{ base: "50%", sm: "50%", lg: "15%" }}
               size={"md"}
@@ -245,6 +247,7 @@ const AdminUpdate = () => {
             >
               Submit
             </Button>
+            {/* </Link> */}
           </Stack>
         </form>
       </Flex>

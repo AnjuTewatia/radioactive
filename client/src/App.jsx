@@ -6,6 +6,8 @@ import Footer from "./components/Homepage/Footer";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import SimpleSidebar from "./admin/Admin";
+import Carousel from "./components/utility/Carosel";
+import Carosel from "./components/utility/Carosel";
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
       <Navbar />
       <AllRoutes />
       <Footer />
+     {/* <Carosel/> */}
     </div>
   );
 }

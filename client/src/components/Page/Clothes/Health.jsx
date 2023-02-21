@@ -60,7 +60,7 @@ const Health = () => {
   } else {
     return (
       <div>
-        <Box w={"75%"} m="auto" paddingTop={"125px"}>
+        <Box w={"75%"} m="auto" paddingTop={"145px"}>
           <Box>
             <Flex justifyContent={"space-between"}>
               <Text fontWeight={"bold"} fontSize="28px">
@@ -83,7 +83,7 @@ const Health = () => {
                     as={Button}
                     colorScheme="blue"
                     w="100%"
-                    border={"2px solid black"}
+                    // border={"2px solid black"}
                     bgColor="white"
                     color={"black"}
                     borderRadius={"18px"}

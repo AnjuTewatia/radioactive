@@ -116,6 +116,7 @@ const AdminLogin = () => {
         minH={"100vh"}
         align={"center"}
         justify={"center"}
+        // paddingTop="160px"
         //   bg={useColorModeValue('gray.50', 'gray.800')}
       >
         <Stack
@@ -128,6 +129,7 @@ const AdminLogin = () => {
           p={5}
           my={12}
           alignItems={"center"}
+          paddingTop="160px"
         >
           <Image
             src={

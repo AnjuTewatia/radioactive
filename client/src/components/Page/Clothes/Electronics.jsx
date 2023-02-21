@@ -83,7 +83,7 @@ const Electronics = () => {
                     as={Button}
                     colorScheme="blue"
                     w="100%"
-                    border={"2px solid black"}
+                    // border={"2px solid black"}
                     bgColor="white"
                     color={"black"}
                     borderRadius={"18px"}
