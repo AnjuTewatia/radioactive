@@ -56,7 +56,7 @@ const AdminGetProduct = () => {
   }, [page]);
 
   return (
-    <div>
+    <div style={{paddingTop:"60px"}}>
       <Heading textAlign={"center"}>Product</Heading>
       <Flex justifyContent={"flex-end"}>
         <Button

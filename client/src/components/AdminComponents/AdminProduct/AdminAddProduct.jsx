@@ -54,18 +54,20 @@ const AdminAddProduct = () => {
   console.log(productData);
   return (
     <div>
-      <Heading textAlign={"center"} pt={"20px"}>
+      <Heading textAlign={"center"} pt={"150px"}>
         Add Product
       </Heading>
-      <Flex justify={"center"} width={"100%"} bg={"whiteAlpha.800"} mt={"15"}>
+      <Flex justify={"center"} width={"70%"} bg={"whiteAlpha.800"} mt={"40"} margin="auto">
         <form
           style={{
             boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-            padding: "30px",
+            padding: "20px",
             width: "100%",
             display: "flex",
             flexDirection: "column",
             gap: "20px",
+            // paddingTop:"180px",
+           
           }}
           onSubmit={handleSubmit}
         >
@@ -130,7 +132,7 @@ const AdminAddProduct = () => {
             spacing={"10"}
             direction={{ base: "column", sm: "row" }}
           >
-            <Box width={{ base: "100%", sm: "100%" }}>
+            {/* <Box width={{ base: "100%", sm: "100%" }}>
               <FormControl isRequired>
                 <FormLabel>Main-Category</FormLabel>
                 <Select
@@ -142,8 +144,8 @@ const AdminAddProduct = () => {
                   <option value="sale">sale</option>
                 </Select>
               </FormControl>
-            </Box>
-            <Box width={{ base: "100%", sm: "100%" }}>
+            </Box> */}
+            {/* <Box width={{ base: "100%", sm: "100%" }}>
               <FormControl isRequired>
                 <FormLabel>Sub-Category</FormLabel>
                 <Select onChange={hanldeChange} name="category" category>
@@ -166,14 +168,14 @@ const AdminAddProduct = () => {
                   )}
                 </Select>
               </FormControl>
-            </Box>
+            </Box> */}
           </Stack>
           <Stack
             width={{ base: "100%", sm: "100%" }}
             spacing={"10"}
             direction={{ base: "column", sm: "row" }}
           >
-            <Box width={{ base: "100%", sm: "100%" }}>
+            {/* <Box width={{ base: "100%", sm: "100%" }}>
               <FormControl isRequired>
                 <FormLabel>Price Strike</FormLabel>
                 <Input
@@ -183,8 +185,8 @@ const AdminAddProduct = () => {
                   placeholder={"Discount "}
                 />
               </FormControl>
-            </Box>
-            <Box width={{ base: "100%", sm: "100%" }}>
+            </Box> */}
+            {/* <Box width={{ base: "100%", sm: "100%" }}>
               <FormControl isRequired>
                 <FormLabel>Add Stocks</FormLabel>
                 <Input
@@ -194,7 +196,7 @@ const AdminAddProduct = () => {
                   placeholder={"Stocks"}
                 />
               </FormControl>
-            </Box>
+            </Box> */}
           </Stack>
           <Stack
             spacing={10}

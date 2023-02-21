@@ -43,7 +43,7 @@ const AllRoutes = () => {
           element={
             // <PrivateRoute>
               <SingleProduct />
-            // {/* </PrivateRoute> */}
+            // </PrivateRoute>
           }
         ></Route>
 
@@ -54,7 +54,7 @@ const AllRoutes = () => {
           element={
             // <PrivateRoute>
               <Cart />
-            // </PrivateRoute>
+            //  {/* </PrivateRoute> */}
           }
         ></Route>
         <Route
@@ -66,6 +66,7 @@ const AllRoutes = () => {
           }
         ></Route>
         {/* <Route path="admin" element={<SimpleSidebar />}></Route> */}
+
         <Route path="/admin" element={
           <>
           <Navbar/>

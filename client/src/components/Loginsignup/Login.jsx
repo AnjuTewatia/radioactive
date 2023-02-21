@@ -1,91 +1,5 @@
-// import React, { useState } from "react";
-
-// import {
-//   Flex,
-//   Link,
-//   useToast,
-//   Text,
-//   Accordion,
-//   Image,
-//   AccordionItem,
-//   AccordionIcon,
-//   AccordionButton,
-//   AccordionPanel,
-//   FormControl,
-//   FormLabel,
-//   Input,
-//   Box,
-//   FormHelperText,
-//   FormErrorMessage,
-//   Checkbox,
-//   Button,
-//   Select,
-//   Toast,
-// } from "@chakra-ui/react";
-
-// const Login = () => {
-//   const [email, setEmail] = useState("");
-//   const [phoneNumber, setPhoneNUmber] = useState();
-//   const [password, setPassword] = useState("");
-
-//   return (
-//     <div>
-//       <Flex>
-//         <Box marginLeft={"250px"} style={{ border:"2px solid grey" , height:"500px"}} >
-//           <Text fontSize={"40px"} style={{marginLeft:"200px",color:"red"}}>Login</Text>
-
-//           <FormControl mt={"20px"} ml={"30px"}>
-//             <FormLabel mt={"20px"} fontSize={"20px"}>
-//               Enter your Registered Email
-//             </FormLabel>
-//             <Input
-//               // value={email}
-//               isRequired
-//               height="50px"
-//               width="400px"
-//               fontSize="20px"
-//               type="text"
-//               placeholder="Enter your email"
-
-//             />
-
-//             <FormLabel mt={"20px"} fontSize={"20px"}>
-//               Registered Phone Number
-//             </FormLabel>
-//             <Input
-//               // value={phoneNumber}
-//               height="50px"
-//               width="400px"
-//               fontSize="20px"
-//               type="number"
-//               placeholder="Enter Phone Number"
-//             />
-//             <FormLabel mt={"20px"} fontSize={"20px"}>
-//               Enter Your Password
-//             </FormLabel>
-//             <Input
-//               // value={password}
-//               height="50px"
-//               width="400px"
-//               fontSize="20px"
-//               type="text"
-//               placeholder="Enter Phone Number"
-//             />
-//           </FormControl>
-           
-//         <Button width={"550px"} backgroundColor={"blue.200"} marginTop={"30px"}>Login</Button>
-//         </Box>
-//       </Flex>
-//     </div>
-//   );
-// };
-
-// export default Login;
-
-
-
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import {
   Flex,
   useToast,
@@ -107,7 +21,7 @@ const Login = () => {
   const toast = useToast();
 
   const [email, setEmail] = useState("");
-  const [phoneNumber,setPhoneNUmber]=useState()
+  const [phoneNumber, setPhoneNUmber] = useState();
   const [password, setPassword] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -130,7 +44,6 @@ const Login = () => {
           localStorage.setItem("email", payload.email);
           setTimeout(() => {
             toast({
-              
               position: "bottom-left",
               render: () => (
                 <Box color="white" p={3} bg="blue.500">
@@ -140,8 +53,7 @@ const Login = () => {
             });
           }, 1000);
           navigateTo("/");
-
-        } else if(!payload.password){
+        } else if (!payload.password) {
           toast({
             position: "bottom-left",
             render: () => (
@@ -150,11 +62,7 @@ const Login = () => {
               </Box>
             ),
           });
-       
-
-    }
-        else {
-
+        } else {
           toast({
             position: "bottom-left",
             render: () => (
@@ -166,8 +74,6 @@ const Login = () => {
         }
       })
       .catch((err) => console.log(err));
-
-
   };
 
   const navigateTo = useNavigate();
@@ -179,7 +85,7 @@ const Login = () => {
     <>
       <Box>
         <Flex>
-          <Box marginLeft={"25%"}>
+          <Box marginLeft={"25%"} paddingTop="160px">
             <Text fontWeight={700} mt={"20px"} fontSize={"30px"}>
               Returning Customers
             </Text>
@@ -187,6 +93,7 @@ const Login = () => {
               If you are a registered user,
               <br /> please enter your email and password.
             </Text>
+            <hr style={{textDecoration:"bold"}}/>
 
             <FormControl mt={"20px"}>
               <FormLabel mt={"20px"} fontSize={"30px"}>
@@ -228,20 +135,20 @@ const Login = () => {
                 </Box>
               </Flex>
               <Link to="/">
-              <Button
-                onClick={handleSubmit}
-                _hover={{ color: "black" }}
-                mt={"20px"}
-                height={"50px"}
-                fontSize={"20px"}
-                borderRadius={"10px"}
-                width={"200px"}
-                color="white"
-                bgColor={"blue.700"}
-              >
-                {" "}
-               Login 
-              </Button>
+                <Button
+                  onClick={handleSubmit}
+                  _hover={{ color: "black" }}
+                  mt={"20px"}
+                  height={"50px"}
+                  fontSize={"20px"}
+                  borderRadius={"10px"}
+                  width={"200px"}
+                  color="white"
+                  bgColor={"blue.700"}
+                >
+                  {" "}
+                  Login
+                </Button>
               </Link>
 
               <Text mt={"30px"} color={"gray"}>
@@ -260,28 +167,8 @@ const Login = () => {
                   </Text>
                 </Flex>
               </Box>
-
-              {/* <Box mt={"20px"}>
-                <Text color={"gray"} fontSize={"14px"}>
-                  Please see our Privacy Policy. California residents, see our
-                  California Privacy <br /> Notice and Do Not Sell My Personal
-                  Information page.
-                </Text>
-              </Box> */}
             </FormControl>
           </Box>
-          {/* <hr
-            style={{
-              border: "none",
-              borderLeft: "1px solid hsla(200, 10%, 50%,100)",
-              height: "100vh",
-              width: "1px",
-              marginLeft: "10%",
-              marginTop: "30px",
-            }}
-          /> */}
-
-          
         </Flex>
       </Box>
     </>

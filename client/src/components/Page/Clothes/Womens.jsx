@@ -62,11 +62,11 @@ const Womens = () => {
   } else {
     return (
       <div>
-        <Box w={"75%"} m="auto" paddingTop={"125px"}>
+        <Box w={"75%"} m="auto" paddingTop={"150px"}>
           <Box>
             <Flex justifyContent={"space-between"}>
               <Text fontWeight={"bold"} fontSize="28px">
-                Clothes
+               CLOTHES FOR WOMENS
               </Text>
             </Flex>
           </Box>
@@ -85,7 +85,7 @@ const Womens = () => {
                     as={Button}
                     colorScheme="blue"
                     w="100%"
-                    border={"2px solid black"}
+                    // border={"2px solid black"}
                     bgColor="white"
                     color={"black"}
                     borderRadius={"18px"}
@@ -130,6 +130,7 @@ const Womens = () => {
               <button>{page}</button>
               <button onClick={() => setPage(page + 1)}> NEXT</button>
             </div>
+            
           </Flex>
         </Box>
 

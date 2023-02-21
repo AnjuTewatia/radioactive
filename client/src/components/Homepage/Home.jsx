@@ -8,6 +8,7 @@ import Health from './Health';
 import Women from "./Women"
 import Cosmetics from "./Cosmetics"
 import Electronics from "./Electronics"
+import Mens from './Page';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -141,7 +142,7 @@ const Home = () => {
 
 
       {/* <Carousel/> */}
-      <Bags/>
+      <Mens/>
       <Women/>
       <Health/>
       <Electronics/>

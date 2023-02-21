@@ -40,6 +40,7 @@ const MobileNav = ({ onOpen }) => {
       bg={"white"}
       borderBottomWidth="1px"
       borderBottomColor={"gray.200"}
+      paddingTop="160px"
       justifyContent={{ base: "space-between", md: "flex-end" }}
     >
       <IconButton

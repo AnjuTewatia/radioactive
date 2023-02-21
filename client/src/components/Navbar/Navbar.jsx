@@ -122,8 +122,7 @@ const Navbar = () => {
                 </CalendarIcon>
                 </Link>
               </Center>
-            </HStack>
-
+              
             <Center h="50px">
                 <Link to="/admin">
                   <Text fontWeight="extrabold" fontSize={"14px"}>
@@ -133,6 +132,9 @@ const Navbar = () => {
                 </Link>
               </Center>
 
+
+
+            </HStack>
           </GridItem>
         </Grid>
       </Wrap>
