@@ -32,9 +32,6 @@ const AllProduct = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
-
-
   useEffect(() => {
     dispatch(Product(category, page, sort, input));
   }, [category, page, sort, input]);
@@ -57,8 +54,6 @@ const AllProduct = () => {
   const hamdlePagination = () => {
     setPage(page + 1);
   };
-
-
 
   if (loading) {
     return <Loading />;
@@ -125,8 +120,10 @@ const AllProduct = () => {
                 </Menu>
               </Flex>
             </Box>
-            <div className="pagination" style={{ justifyContent: "space-between",
-    color: "blue"}}>
+            <div
+              className="pagination"
+              style={{ justifyContent: "space-between", color: "blue" }}
+            >
               <button disabled={page === 1} onClick={() => setPage(page - 1)}>
                 PREV
               </button>
@@ -151,8 +148,5 @@ const AllProduct = () => {
     );
   }
 };
-
-
-
 
 export default AllProduct;

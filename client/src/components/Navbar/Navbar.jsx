@@ -18,12 +18,15 @@ import {
 import { SearchIcon, CalendarIcon } from "@chakra-ui/icons";
 
 import React from "react";
+import { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 // import  './Navbar.module.css'
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const [search , setSearch]=useState("")
+const navigate=useNavigate()
   const activeStyle = {
     color: "black",
     backgroundColor: "#fdd835",
@@ -36,6 +39,18 @@ const Navbar = () => {
     // position:"fixed",
     // zIndex:"999"
   };
+
+  const handleClick=(e)=>{
+    setSearch(e.target.value)
+    if(e.code=="Enter"){
+      navigate(`/search/${search}`)
+
+
+    }
+
+  }
+
+
 
   return (
     <Box
@@ -78,18 +93,26 @@ const Navbar = () => {
 
           <GridItem style={{ marginRight: "100px" }}>
             <HStack spacing="24px">
+
+
+
               <InputGroup>
                 <Input
                   w={700}
                   backgroundColor={"white"}
                   color={"black"}
                   placeholder="Search By Product"
+                  onKeyUp={(e)=>handleClick(e)}
+                  
                 />
                 <InputLeftElement
                   pointerEvents="none"
                   children={<SearchIcon color="gray.300" />}
                 />
               </InputGroup>
+
+
+
 
               <Center h="50px">
                 <Text fontWeight="extrabold" fontSize={"14px"}>

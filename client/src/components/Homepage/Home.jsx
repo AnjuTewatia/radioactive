@@ -3,12 +3,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 // import axios from "axios";
 import { Box, Img } from "@chakra-ui/react";
-import Bags from "./Page"
+// import Bags from "./Page"
 import Health from './Health';
 import Women from "./Women"
 import Cosmetics from "./Cosmetics"
 import Electronics from "./Electronics"
-import Mens from './Page';
+import Mens from './Mens';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
