@@ -23,6 +23,7 @@ import AdminAddProduct from "../AdminComponents/AdminProduct/AdminAddProduct";
 import AdminUpdate from "../AdminComponents/AdminProduct/AdminUpdate";
 import AdminLogin from "../Page/AdminPage/AdminLogin";
 import AdminShowUser from "../Page/AdminPage/AdminShowUser";
+import SearchPage from "../Page/Searchpage/SearchPage"
 
 const AllRoutes = () => {
   return (
@@ -37,6 +38,7 @@ const AllRoutes = () => {
         <Route path="/jewellery" element={<Jewellery />}></Route>
         <Route path="/women" element={<Womens />} />
         <Route path="/kids" element={<Kids />}></Route>
+        <Route path="/search/:search" element={<SearchPage/>}></Route>
 
         <Route
           path="/singleproduct/:id"

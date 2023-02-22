@@ -122,8 +122,15 @@ const Mens = () => {
               </Flex>
             </Box>
 
-            <div className="pagination" style={{ justifyContent: "space-between",
-    color: "blue"}}>
+            <div
+              className="pagination"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "8em",
+                color: "blue",
+              }}
+            >
               <button disabled={page === 1} onClick={() => setPage(page - 1)}>
                 PREV
               </button>
