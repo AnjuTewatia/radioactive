@@ -14,10 +14,10 @@ import {
 const Footer=() => {
   return (
     <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
+      bg={useColorModeValue('blue.100', 'blue.300')}
       color={useColorModeValue('gray.700', 'gray.200')}
-      paddingTop="125px" 
-      width="100%" marginTop={"40px"}>
+      paddingTop="15px" 
+      width="100%" marginTop={"45px"}>
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr 1fr' }}
@@ -32,9 +32,14 @@ const Footer=() => {
           </Stack>
           <Stack align={'flex-start'}>
             <Text fontSize={"25px"}>Clothes</Text>
-            <Link to="/clothes">Mens</Link>
+            <Link to="/clothes">
+            <Text>
+
+            Mens
+            </Text>
+            </Link>
             <Link to="/women">Womens</Link>
-            <Link to="/kids">Kinds</Link>
+            <Link to="/kids">Kids</Link>
            
           </Stack>
           <Stack align={'flex-start'}>

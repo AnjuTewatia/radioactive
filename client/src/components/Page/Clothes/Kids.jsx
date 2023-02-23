@@ -64,7 +64,7 @@ const Kids = () => {
           <Box>
             <Flex justifyContent={"space-between"}>
               <Text fontWeight={"bold"} fontSize="28px">
-               CLOTHES FOR  KIDS 
+                CLOTHES FOR KIDS
               </Text>
             </Flex>
           </Box>
@@ -120,8 +120,15 @@ const Kids = () => {
                 </Menu>
               </Flex>
 
-              <div className="pagination" style={{ justifyContent: "space-between",
-    color: "blue"}}>
+              <div
+                className="pagination"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "8em",
+                  color: "blue",
+                }}
+              >
                 <button disabled={page === 1} onClick={() => setPage(page - 1)}>
                   PREV
                 </button>
