@@ -23,10 +23,12 @@ import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 // import  './Navbar.module.css'
 import { useNavigate } from "react-router-dom";
+ import logo from "../../assets/logo.jpg"
+
 
 const Navbar = () => {
-  const [search , setSearch]=useState("")
-const navigate=useNavigate()
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
   const activeStyle = {
     color: "black",
     backgroundColor: "#fdd835",
@@ -40,24 +42,19 @@ const navigate=useNavigate()
     // zIndex:"999"
   };
 
-  const handleClick=(e)=>{
-    setSearch(e.target.value)
-    if(e.code=="Enter"){
-      navigate(`/search/${search}`)
-
-
+  const handleClick = (e) => {
+    setSearch(e.target.value);
+    if (e.code == "Enter") {
+      navigate(`/search/${search}`);
     }
-
-  }
-
-
+  };
 
   return (
     <Box
       className="mainNav"
       position={"fixed"}
       zIndex={"999"}
-      bgColor={"black"}
+      bgColor={"blue.400"}
       width={"100%"}
       color={"white"}
     >
@@ -70,9 +67,11 @@ const navigate=useNavigate()
           <GridItem>
             <Link to="/">
               <Image
-                width="80%"
-                height={"90px"}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlr4ZxBMXg0EyDACXUmTAkddbEqub6A0eE8Q&usqp=CAU"
+                width="40%"
+                height={"50px"}
+                // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlr4ZxBMXg0EyDACXUmTAkddbEqub6A0eE8Q&usqp=CAU"
+              src={logo}
+
               />
             </Link>
           </GridItem>
@@ -81,38 +80,30 @@ const navigate=useNavigate()
             <HStack spacing="24px">
               <Center h="50px">
                 <Link to="/allproduct">
-                  <Text fontWeight="extrabold" fontSize={"20px"}>
+                  <Text fontWeight="extrabold" fontSize={"20px"} ml="40px">
                     {" "}
                     All Products
                   </Text>
                 </Link>
               </Center>
-
             </HStack>
           </GridItem>
 
           <GridItem style={{ marginRight: "100px" }}>
             <HStack spacing="24px">
-
-
-
               <InputGroup>
                 <Input
                   w={700}
                   backgroundColor={"white"}
                   color={"black"}
                   placeholder="Search By Product"
-                  onKeyUp={(e)=>handleClick(e)}
-                  
+                  onKeyUp={(e) => handleClick(e)}
                 />
                 <InputLeftElement
                   pointerEvents="none"
                   children={<SearchIcon color="gray.300" />}
                 />
               </InputGroup>
-
-
-
 
               <Center h="50px">
                 <Text fontWeight="extrabold" fontSize={"14px"}>
@@ -123,10 +114,10 @@ const navigate=useNavigate()
 
               <Center h="50px">
                 <Link to="/login">
-                <Text fontWeight="extrabold" fontSize={"14px"}>
-                  {" "}
-                  Login
-                </Text>
+                  <Text fontWeight="extrabold" fontSize={"14px"}>
+                    {" "}
+                    Login
+                  </Text>
                 </Link>
               </Center>
               <Center h="50px">
@@ -140,30 +131,25 @@ const navigate=useNavigate()
 
               <Center h="50px">
                 <Link to="/cart">
-                <CalendarIcon fontWeight="extrabold" fontSize={"20px"}>
-                  {" "}
-                </CalendarIcon>
+                  <CalendarIcon fontWeight="extrabold" fontSize={"20px"}>
+                    {" "}
+                  </CalendarIcon>
                 </Link>
               </Center>
-              
-            <Center h="50px">
-                <Link to="/admin">
+
+              <Center h="50px">
+                <Link to="/admin/login">
                   <Text fontWeight="extrabold" fontSize={"14px"}>
                     {" "}
                     Admin
                   </Text>
                 </Link>
               </Center>
-
-
-
             </HStack>
           </GridItem>
         </Grid>
       </Wrap>
       <hr />
-
-
 
       <HStack justify="center" spacing="24px">
         <Center h="50px">
@@ -193,13 +179,7 @@ const navigate=useNavigate()
           </Link>
         </Center>
 
-
-        <Center
-          padding="0px 20px"
-          //  style={({ isActive }) => (isActive ? activeStyle : defaultStyle)}
-
-          h="50px"
-        >
+        <Center padding="0px 20px" h="50px">
           <Link to="/health">
             <Text fontWeight="extrabold" fontSize={"20px"}>
               {" "}

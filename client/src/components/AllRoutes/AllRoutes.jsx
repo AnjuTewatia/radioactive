@@ -23,7 +23,7 @@ import AdminAddProduct from "../AdminComponents/AdminProduct/AdminAddProduct";
 import AdminUpdate from "../AdminComponents/AdminProduct/AdminUpdate";
 import AdminLogin from "../Page/AdminPage/AdminLogin";
 import AdminShowUser from "../Page/AdminPage/AdminShowUser";
-import SearchPage from "../Page/Searchpage/SearchPage"
+import SearchPage from "../Page/Searchpage/SearchPage";
 
 const AllRoutes = () => {
   return (
@@ -38,14 +38,14 @@ const AllRoutes = () => {
         <Route path="/jewellery" element={<Jewellery />}></Route>
         <Route path="/women" element={<Womens />} />
         <Route path="/kids" element={<Kids />}></Route>
-        <Route path="/search/:search" element={<SearchPage/>}></Route>
+        <Route path="/search/:search" element={<SearchPage />}></Route>
 
         <Route
           path="/singleproduct/:id"
           element={
             // <PrivateRoute>
-              <SingleProduct />
-            // </PrivateRoute>
+            <SingleProduct />
+          //  </PrivateRoute>
           }
         ></Route>
 
@@ -55,37 +55,41 @@ const AllRoutes = () => {
           path="/cart"
           element={
             // <PrivateRoute>
-              <Cart />
-            //  {/* </PrivateRoute> */}
+            <Cart />
+            // </PrivateRoute>
           }
         ></Route>
         <Route
           path="/checkout"
           element={
             // <PrivateRoute>
-              <Checkout />
+            <Checkout />
             // {/* </PrivateRoute> */}
           }
         ></Route>
-        {/* <Route path="admin" element={<SimpleSidebar />}></Route> */}
 
-        <Route path="/admin" element={
-          <>
-          <Navbar/>
-        <AdminDshboardPage/>
-        </>
-        }/>
-        <Route path="/admin/product" element={<AdminShowProduct/>}/>
-        <Route path="/admin/addProduct" element={<AdminAddProduct/>}/>
-        <Route path="/admin/update/:id" element={<AdminUpdate/>}/>
-        <Route path="/admin/login" element={<AdminLogin/>}/>
-        <Route path="/admin/user" element={
-          <>
-          <Navbar/>
-        <AdminShowUser/>
-        </>
-
-        }/>
+        <Route
+          path="/admin"
+          element={
+            <>
+              <Navbar />
+              <AdminDshboardPage />
+            </>
+          }
+        />
+        <Route path="/admin/product" element={<AdminShowProduct />} />
+        <Route path="/admin/addProduct" element={<AdminAddProduct />} />
+        <Route path="/admin/update/:id" element={<AdminUpdate />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin/user"
+          element={
+            <>
+              <Navbar />
+              <AdminShowUser />
+            </>
+          }
+        />
       </Routes>
     </>
   );

@@ -122,7 +122,12 @@ const AllProduct = () => {
             </Box>
             <div
               className="pagination"
-              style={{ justifyContent: "space-between", color: "blue" }}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "8em",
+                color: "blue",
+              }}
             >
               <button disabled={page === 1} onClick={() => setPage(page - 1)}>
                 PREV
