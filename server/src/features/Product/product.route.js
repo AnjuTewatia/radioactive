@@ -15,7 +15,7 @@ app.get("/allprodAdmin", async (req, res) => {
   }
 });
 
-app.get("", async (req, res) => {
+app.get("/", async (req, res) => {
   const { page = 1, limit = 20, category, input, priceSort } = req.query;
   try {
     if (priceSort && category) {
