@@ -59,7 +59,7 @@ const Mens = () => {
 
   useEffect(() => {
     axios
-      .get("https://gold-gifted-ladybug.cyclic.app/product?category=Mens")
+      .get("https://rich-puce-abalone-gear.cyclic.app/product?category=Mens")
       .then((response) => {
         console.log("res", response.data);
         setData(response.data);

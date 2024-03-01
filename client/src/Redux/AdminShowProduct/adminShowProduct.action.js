@@ -6,7 +6,7 @@ import {
   ADMIN_UPDATE_PRODUCT,
 } from "./adminShowProduct.type";
 
-const mainUrl = "https://gold-gifted-ladybug.cyclic.app";
+const mainUrl = "https://rich-puce-abalone-gear.cyclic.app/";
 
 export const adminShowProducts = () => async (dispatch) => {
   try {
@@ -52,10 +52,7 @@ export const adminShowOneProduct = (id) => async (dispatch) => {
 // update product
 export const adminUpdateData = (id, data) => async (dispatch) => {
   try {
-    let res = await axios.patch(
-      `${mainUrl}/product/${id}`,
-      data
-    );
+    let res = await axios.patch(`${mainUrl}/product/${id}`, data);
     dispatch({ type: ADMIN_UPDATE_PRODUCT, payload: res.data });
   } catch (error) {
     console.log(error);

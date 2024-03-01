@@ -29,7 +29,7 @@ const Login = () => {
 
     // console.log(payload);
 
-    fetch("https://gold-gifted-ladybug.cyclic.app/user/login", {
+    fetch("https://rich-puce-abalone-gear.cyclic.app/login", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -93,7 +93,7 @@ const Login = () => {
               If you are a registered user,
               <br /> please enter your email and password.
             </Text>
-            <hr style={{textDecoration:"bold"}}/>
+            <hr style={{ textDecoration: "bold" }} />
 
             <FormControl mt={"20px"}>
               <FormLabel mt={"20px"} fontSize={"30px"}>

@@ -59,7 +59,9 @@ const Cosmetic = () => {
 
   useEffect(() => {
     axios
-      .get("https://gold-gifted-ladybug.cyclic.app/product?category=cosmetics")
+      .get(
+        "https://rich-puce-abalone-gear.cyclic.app/product?category=cosmetics"
+      )
       .then((response) => {
         console.log("res", response.data);
         setData(response.data);

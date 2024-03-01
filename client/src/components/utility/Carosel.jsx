@@ -1,9 +1,16 @@
 import React from "react";
-import { Box, IconButton, useBreakpointValue,Button,Icon, SimpleGrid } from "@chakra-ui/react";
+import {
+  Box,
+  IconButton,
+  useBreakpointValue,
+  Button,
+  Icon,
+  SimpleGrid,
+} from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
-import {  BiRightArrowAlt } from "react-icons/bi";
-import {  AiFillCaretLeft,AiFillCaretRight } from "react-icons/ai";
-import { AiFillStar } from 'react-icons/ai'
+import { BiRightArrowAlt } from "react-icons/bi";
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 
 // And react-slick as our Carousel Lib
 import { useState, useEffect } from "react";
@@ -20,7 +27,6 @@ import {
   Image,
   Stack,
   Flex,
-  
 } from "@chakra-ui/react";
 
 // Settings for the slider
@@ -37,11 +43,11 @@ export default function Carousel() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState(1);
-  const navigate=useNavigate();
-  const handleClick=(item)=>{
-    setItem("singleproduct",item)
-  navigate("/electronics")
-}
+  const navigate = useNavigate();
+  const handleClick = (item) => {
+    setItem("singleproduct", item);
+    navigate("/electronics");
+  };
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
@@ -58,7 +64,9 @@ export default function Carousel() {
   //  }
   useEffect(() => {
     axios
-      .get("https://gold-gifted-ladybug.cyclic.app/product?category=electronics")
+      .get(
+        "https://rich-puce-abalone-gear.cyclic.app/product?category=electronics"
+      )
       .then((response) => {
         console.log("res", response.data);
         setData(response.data);
@@ -95,8 +103,10 @@ export default function Carousel() {
         transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickPrev()}
-      >  
-   <Button   backgroundColor={"blue.300"}><AiFillCaretLeft color="black" /></Button>
+      >
+        <Button backgroundColor={"blue.300"}>
+          <AiFillCaretLeft color="black" />
+        </Button>
       </IconButton>
       {/* Right Icon */}
       <IconButton
@@ -110,13 +120,24 @@ export default function Carousel() {
         zIndex={2}
         onClick={() => slider?.slickNext()}
       >
-     <Button   backgroundColor={"blue.300"}><AiFillCaretRight color="black" /></Button>
+        <Button backgroundColor={"blue.300"}>
+          <AiFillCaretRight color="black" />
+        </Button>
       </IconButton>
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {data.map((el, index) => (
-          <Card className="anju" cursor="pointer" columns={[1, 2, 2, 2]} gap={10} 
-           height="460px"  onClick={()=>handleClick(el)} maxW="sm"  style={{boxShadow:"5px 10px #888888" }} ml="53px"> 
+          <Card
+            className="anju"
+            cursor="pointer"
+            columns={[1, 2, 2, 2]}
+            gap={10}
+            height="460px"
+            onClick={() => handleClick(el)}
+            maxW="sm"
+            style={{ boxShadow: "5px 10px #888888" }}
+            ml="53px"
+          >
             <CardBody>
               <Image
                 id="hov"
@@ -131,8 +152,9 @@ export default function Carousel() {
                 <Text noOfLines={[1]} fontWeight="bold" size="xs">
                   {el.title}
                 </Text>
-                <Text fontWeight="bold" fontSize="lg"> Price:
-                  ${el.price}
+                <Text fontWeight="bold" fontSize="lg">
+                  {" "}
+                  Price: ${el.price}
                 </Text>
                 <Box mb="15px">
                   {Array(5)
@@ -140,11 +162,13 @@ export default function Carousel() {
                     .map((_, i) => {
                       let rating = Math.ceil(Math.random() * 3);
 
-                      return <Icon
-                        as={AiFillStar}
-                        key={i}
-                        color={i <= rating ? "gold" : "gray.300"}
-                      />
+                      return (
+                        <Icon
+                          as={AiFillStar}
+                          key={i}
+                          color={i <= rating ? "gold" : "gray.300"}
+                        />
+                      );
                     })}
                 </Box>
 
@@ -154,7 +178,6 @@ export default function Carousel() {
                   </Flex>
                 </Text>
                 <Box>
-             
                   <Flex marginLeft="80px" textAlign="bottom">
                     <Text mr="5px">$1.00/2</Text>
                     <AiFillDollarCircle
@@ -167,7 +190,9 @@ export default function Carousel() {
                     <Text ml="5px">Cashback</Text>
                   </Flex>
                 </Box>
-                <Text color="teal" mb="30px">Free shipping with $99 orders</Text>
+                <Text color="teal" mb="30px">
+                  Free shipping with $99 orders
+                </Text>
               </Stack>
             </CardBody>
           </Card>

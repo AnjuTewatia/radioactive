@@ -6,7 +6,7 @@ import {
 
 import axios from "axios";
 
-const url = "https://gold-gifted-ladybug.cyclic.app";
+const url = "https://rich-puce-abalone-gear.cyclic.app/";
 
 // dispatch(Product())
 
@@ -23,7 +23,7 @@ export const Product = (category, page, priceSort, input) => (dispatch) => {
 
 export const SearchProduct = (input) => (dispatch) => {
   dispatch({ type: PRODUCT_LOADING });
-console.log(input)
+  console.log(input);
   axios
     .get(`${url}/product?input=${input}`)
     .then((res) => dispatch({ type: PRODUCT_SUCCESS, payload: res.data }))

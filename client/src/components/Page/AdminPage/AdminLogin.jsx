@@ -18,22 +18,21 @@ import { LoginPost } from "../../../Redux/Auth/Auth.action";
 
 const AdminLogin = () => {
   const dispatch = useDispatch();
-  const { isAuth, token ,data } = useSelector((store) => store.auth);
+  const { isAuth, token, data } = useSelector((store) => store.auth);
 
   // console.log(isAuth, token ,data)
-  
-  const [email,setEmail]=useState("")
-  const [password,setPassword]=useState("")
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigateTo = useNavigate();
   const toast = useToast();
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const payload = { email, password };
 
-    fetch("https://gold-gifted-ladybug.cyclic.app/user/login", {
+    fetch("https://rich-puce-abalone-gear.cyclic.app/user/login", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
@@ -57,7 +56,7 @@ const AdminLogin = () => {
             });
           }, 1000);
           navigateTo("/admin");
-        } else if(!payload.password){
+        } else if (!payload.password) {
           toast({
             position: "bottom-left",
             render: () => (
@@ -66,8 +65,7 @@ const AdminLogin = () => {
               </Box>
             ),
           });
-    }
-        else {
+        } else {
           toast({
             position: "bottom-left",
             render: () => (
@@ -79,8 +77,6 @@ const AdminLogin = () => {
         }
       })
       .catch((err) => console.log(err));
-
-
   };
   useEffect(() => {
     if (isAuth) {
@@ -99,16 +95,16 @@ const AdminLogin = () => {
       }
     }
 
-  //   if (error) {
-  //     toast({
-  //       title: "Something Went Wrong ",
-  //       description: "You Are Note Admin & Enter Right Credential",
-  //       status: "error",
-  //       duration: 2000,
-  //       position: "top",
-  //       isClosable: true,
-  //     });
-  //   }
+    //   if (error) {
+    //     toast({
+    //       title: "Something Went Wrong ",
+    //       description: "You Are Note Admin & Enter Right Credential",
+    //       status: "error",
+    //       duration: 2000,
+    //       position: "top",
+    //       isClosable: true,
+    //     });
+    //   }
   }, [isAuth]);
   return (
     <div>
@@ -148,12 +144,16 @@ const AdminLogin = () => {
                 _placeholder={{ color: "gray.500" }}
                 type="email"
                 value={email}
-                onChange={(e)=>setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </FormControl>
             <FormControl id="password" isRequired pb={"20px"}>
               <FormLabel fontSize={"18px"}>Password</FormLabel>
-              <Input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </FormControl>
             <Stack spacing={6} alignItems={"center"}>
               <Button

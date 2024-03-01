@@ -122,7 +122,7 @@ const Health = () => {
 
   useEffect(() => {
     axios
-      .get("https://gold-gifted-ladybug.cyclic.app/product?category=health")
+      .get("https://rich-puce-abalone-gear.cyclic.app/product?category=health")
       .then((response) => {
         console.log("res", response.data);
         setData(response.data);

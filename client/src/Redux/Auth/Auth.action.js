@@ -8,19 +8,17 @@ import {
 
 import axios from "axios";
 
-const url = "https://gold-gifted-ladybug.cyclic.app/";
+const url = "https://rich-puce-abalone-gear.cyclic.app/";
 
 export const Login = (data) => async (dispatch) => {
   try {
-    await axios
-      .post(`${url}/login`, data)
-      .then((res) =>
-        dispatch({
-          type: AUTH_SUCCESS,
-          token: res.data.token,
-          payload: res.data,
-        })
-      );
+    await axios.post(`${url}/login`, data).then((res) =>
+      dispatch({
+        type: AUTH_SUCCESS,
+        token: res.data.token,
+        payload: res.data,
+      })
+    );
 
     // dispatch({type:AUTH_SUCCESS,token})
   } catch (err) {
@@ -31,15 +29,13 @@ export const Login = (data) => async (dispatch) => {
 
 export const Signup = (data) => async (dispatch) => {
   try {
-    await axios
-      .post(`${url}/signup`, data)
-      .then((res) =>
-        dispatch({
-          type: AUTH_SIGNUP,
-          token: res.data.token,
-          payload: res.data,
-        })
-      );
+    await axios.post(`${url}/signup`, data).then((res) =>
+      dispatch({
+        type: AUTH_SIGNUP,
+        token: res.data.token,
+        payload: res.data,
+      })
+    );
 
     // dispatch({type:AUTH_SUCCESS,token})
   } catch (err) {
@@ -47,8 +43,8 @@ export const Signup = (data) => async (dispatch) => {
     return err.response.data;
   }
 };
- export const Logout = () => {
+export const Logout = () => {
   dispatch({ type: AUTH_LOGOUT });
 };
 
-// modules.export = { Login, Signup, Logout }; export 
+// modules.export = { Login, Signup, Logout }; export

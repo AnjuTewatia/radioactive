@@ -60,7 +60,7 @@ const Electronics = () => {
   useEffect(() => {
     axios
       .get(
-        "https://gold-gifted-ladybug.cyclic.app/product?category=electronics"
+        "https://rich-puce-abalone-gear.cyclic.app/product?category=electronics"
       )
       .then((response) => {
         console.log("res", response.data);
