@@ -144,6 +144,7 @@ const Kids = () => {
           gap={10}
           width={"80%"}
           margin={"auto"}
+          marginBottom="70px"
         >
           {product.length > 0 &&
             product.map((item) => {

@@ -29,7 +29,7 @@ const Login = () => {
 
     // console.log(payload);
 
-    fetch("https://rich-puce-abalone-gear.cyclic.app/login", {
+    fetch("https://rich-puce-abalone-gear.cyclic.app/user/login", {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {
