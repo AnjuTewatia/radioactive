@@ -63,7 +63,7 @@ const Womens = () => {
           <Box>
             <Flex justifyContent={"space-between"}>
               <Text fontWeight={"bold"} fontSize="28px">
-               CLOTHES FOR WOMENS
+                CLOTHES FOR WOMENS
               </Text>
             </Flex>
           </Box>
@@ -120,18 +120,21 @@ const Womens = () => {
               </Flex>
             </Box>
 
-            <div className="pagination"  style={{
+            <div
+              className="pagination"
+              style={{
                 display: "flex",
                 justifyContent: "space-between",
                 width: "8em",
-                color: "blue",}}>
+                color: "blue",
+              }}
+            >
               <button disabled={page === 1} onClick={() => setPage(page - 1)}>
                 PREV
               </button>
               <button>{page}</button>
               <button onClick={() => setPage(page + 1)}> NEXT</button>
             </div>
-            
           </Flex>
         </Box>
 
@@ -140,6 +143,7 @@ const Womens = () => {
           gap={10}
           width={"80%"}
           margin={"auto"}
+          marginBottom="70px"
         >
           {product.length > 0 &&
             product.map((item) => {

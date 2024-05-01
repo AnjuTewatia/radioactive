@@ -39,7 +39,7 @@ const SignUp = () => {
     const payload = { name, email, password, gender, phoneNumber, role };
     console.log(payload);
     let res = await axios.post(
-      "https://rich-puce-abalone-gear.cyclic.app/signup",
+      "https://rich-puce-abalone-gear.cyclic.app/user/signup",
       payload
     );
     console.log(res);
